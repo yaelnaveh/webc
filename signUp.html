@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signUp</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+<section id="header">
+    <!--<div class="logo">
+        <a href="#"><img src="logo.png" alt="logo"></a>
+    </div>-->
+    <nav>
+        <ul id="navbar">
+<!--            <li><a href="#homeeee"><img src="logo.png"></a></li>-->
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="newTrip.html">New Trip</a></li>
+        </ul>
+    </nav>
+</section>
+
+<div class="form container">
+    <div class="title">Sign Up</div>
+
+    <form action="#">
+        <div class="input-row">
+            <div class="input-box">
+                <label>First Name</label>
+                <input type="text" placeholder="Enter your first name" required>
+            </div>
+
+            <div class="input-box">
+                <label>Last Name</label>
+                <input type="text" placeholder="Enter your last name" required>
+            </div>
+        </div>
+         <div class="input-row">
+            <div class="input-box">
+                <label>Phone Number</label>
+                <input type="text" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+        </div>
+
+         <div class="input-row">
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="input-box">
+                <label>Password2</label>
+                <input type="password" placeholder="Enter your password2" required>
+            </div>
+        </div>
+
+         <div class="input-row">
+            <div class="input-box">
+                <label>Birthday Date</label>
+                <input type="date"  required>
+            </div>
+
+            <div class="input-box">
+                <label>Gender</label>
+                <select  name="Gender" class="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+            </div>
+        </div>
+
+        <div class="input-box">
+                <label>Address</label>
+                <div class="location-inputs">
+                    <input type="text" placeholder="City" required>
+                    <input type="text" placeholder="Street" required>
+                    <input type="text" placeholder="Number" required>
+                </div>
+                <br>
+        </div>
+
+        <div class="checkbox">
+                <label>
+                    <input type="checkbox" > I have a license
+                </label>
+        </div>
+
+        <div class="checkbox">
+                <label >
+                    <input type="checkbox" required> All the details are correct
+                </label>
+        </div>
+
+        <div class="button">
+                <input type="submit" class="submit" value="Register">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

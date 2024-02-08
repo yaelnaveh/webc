@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>newTrip</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+<section id="header">
+    <!--<div class="logo">
+        <a href="#"><img src="logo.png" alt="logo"></a>
+    </div>-->
+    <nav>
+        <ul id="navbar">
+<!--            <li><a href="#homeeee"><img src="logo.png"></a></li>-->
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="newTrip.html">New Trip</a></li>
+        </ul>
+    </nav>
+
+</section>
+<div class="form container">
+    <div class="title">New Trip</div>
+
+    <form action="#">
+<!--        <div class="input-row">-->
+            <div class="input-box">
+                <label>Source</label>
+                <div class="location-inputs">
+                    <input type="text" placeholder="City" required>
+                    <input type="text" placeholder="Street" required>
+                    <input type="text" placeholder="Number" required>
+                </div>
+
+            </div>
+
+
+            <div class="input-box">
+                <label>Destination</label>
+                <div class="location-inputs">
+                    <input type="text" placeholder="City" required>
+                    <input type="text" placeholder="Street" required>
+                    <input type="text" placeholder="Number" required>
+                </div>
+            </div>
+<!--        </div>-->
+
+        <div class="input-row">
+            <div class="input-box">
+                <label>Date</label>
+                <input type="date" required>
+            </div>
+
+            <div class="input-box">
+                <label>Time</label>
+                <input type="time" required>
+            </div>
+
+            <div class="input-box">
+                <label>Number of Places</label>
+                <input type="number" placeholder="Enter number" required min="1" max="100">
+            </div>
+
+            <div class="input-box">
+                <label>Price</label>
+                <input type="number" placeholder="Enter price" required min="1" max="1000">
+            </div>
+        </div>
+
+
+        <div class="input-box">
+            <label>Comments</label>
+            <textarea placeholder="Enter your comments" rows="4" required></textarea>
+        </div>
+
+
+        <div class="checkbox">
+                <label >
+                    <input type="checkbox" required> I agree to the terms and conditions
+                </label>
+        </div>
+        <div class="button">
+                <input type="submit" class="submit" value="Register">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
