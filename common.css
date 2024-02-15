@@ -53,6 +53,17 @@ body {
     text-transform: uppercase;
 }
 
+.submit {
+    padding: 10px 20px;
+    background-color: #197067;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
 /*form*/
 
 

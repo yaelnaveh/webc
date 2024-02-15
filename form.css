@@ -12,6 +12,10 @@
     margin-bottom: 20px;
 }
 
+.form .forgotLine {
+    margin-top: 0;
+}
+
 form input,select {
     width: 100%;
     padding: 10px;
@@ -57,13 +61,4 @@ input[type="checkbox"] {
 textarea {
     width: 100%;
     box-sizing: border-box;
-}
-.submit {
-    padding: 10px 20px;
-    background-color: #197067;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
 }
