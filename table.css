@@ -1,17 +1,18 @@
-.bodyy{
-    display: block;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 50px;
+/*  -->  common*/
+/*.bodyy{*/
+/*    display: block;*/
+/*    background-color: rgba(255, 255, 255, 0.8);*/
+/*    padding: 20px;*/
+/*    border-radius: 10px;*/
+/*    margin: 50px;*/
 
-}
+/*}*/
 
-.bodyy h1{
-    color:#0a3833 ;
-    /*padding-top: 50px;*/
-    text-align: center;
-}
+/*.bodyy h1{*/
+/*    color:#0a3833 ;*/
+/*    !*padding-top: 50px;*!*/
+/*    text-align: center;*/
+/*}*/
 .table{
     background-color: rgba(255, 255, 255, 0.8);
    border-collapse: collapse;

@@ -24,52 +24,57 @@
 
 </section>
 
-<div class="form container">
+<div class="form container " >
     <div class="title">Sign Up</div>
-
-    <form action="#">
+    <p class="success register-success"></p>
+    <form id="customerForm" action="/">
         <div class="input-row">
-            <div class="input-box">
-                <label>First Name</label>
-                <input type="text" placeholder="Enter your first name" required>
+            <div class="input-control">
+                <label for="firstName">First Name</label>
+                <input id="firstName" name="firstName" type="text" placeholder="Enter your first name" > <!--required-->
+                <div class="error"></div>
             </div>
-
-            <div class="input-box">
+            <div class="input-control">
                 <label>Last Name</label>
-                <input type="text" placeholder="Enter your last name" required>
+                <input id="lastName" name="lastName" type="text" placeholder="Enter your last name" ><!--required-->
+                <div class="error"></div>
             </div>
         </div>
          <div class="input-row">
-            <div class="input-box">
+            <div class="input-control">
                 <label>Phone Number</label>
-                <input type="text" placeholder="Enter your phone number" required>
+                <input id= "phone" name="phone" type="text" placeholder="Enter your phone number" > <!--required-->
+                <div class="error"></div>
             </div>
 
-            <div class="input-box">
+            <div class="input-control">
                 <label>Email</label>
-                <input type="email" placeholder="Enter your email" required>
+                <input id="email" name="email" type="email" placeholder="Enter your email" > <!--required-->
+                <div class="error"></div>
             </div>
         </div>
 
          <div class="input-row">
-            <div class="input-box">
+            <div class="input-control">
                 <label>Password</label>
-                <input type="password" placeholder="Enter your password" required>
+                <input id="password" name= "password" type="password" placeholder="Enter your password" > <!--required-->
+                <div class="error"></div>
             </div>
 
-            <div class="input-box">
+            <div class="input-control">
                 <label>Password2</label>
-                <input type="password" placeholder="Enter your password2" required>
+                <input id="password2" name= "password2" type="password" placeholder="Enter your password2" > <!--required-->
+                <div class="error"></div>
             </div>
         </div>
 
          <div class="input-row">
-            <div class="input-box">
+            <div class="input-control">
                 <label>Birthday Date</label>
-                <input type="date"  required>
+                <input type="date"  > <!--required-->
             </div>
 
-            <div class="input-box">
+            <div class="input-control">
                 <label>Gender</label>
                 <select  name="Gender" class="gender">
                         <option value="male">Male</option>
@@ -79,12 +84,15 @@
             </div>
         </div>
 
-        <div class="input-box">
+        <div class="input-control">
                 <label>Address</label>
                 <div class="location-inputs">
-                    <input type="text" placeholder="City" required>
-                    <input type="text" placeholder="Street" required>
-                    <input type="text" placeholder="Number" required>
+                    <input id="city" name="city" type="text" placeholder="City" > <!--required-->
+<!--                    <div class="error"></div>-->
+                    <input id="street" name="street" type="text" placeholder="Street" > <!--required-->
+<!--                    <div class="error"></div>-->
+                    <input id="number" name="number" type="number" placeholder="Number" > <!--required-->
+<!--                    <div class="error"></div>-->
                 </div>
                 <br>
         </div>
@@ -97,7 +105,7 @@
 
         <div class="checkbox">
                 <label >
-                    <input type="checkbox" required> All the details are correct
+                    <input type="checkbox" > All the details are correct
                 </label>
         </div>
 
@@ -107,5 +115,6 @@
     </form>
 </div>
 
+<script  src="signUp.js"></script>
 </body>
 </html>

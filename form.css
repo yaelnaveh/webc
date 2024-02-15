@@ -34,7 +34,7 @@ form input,select {
     width: 100%; /* Ensure the container spans the full width */
 }
 
-.input-box {
+.input-control{
     flex-basis: 100%;
 }
 
@@ -46,10 +46,12 @@ form input,select {
 
 /*dont work--------------*/
 .checkbox {
-    display: flex;
-    white-space: nowrap;
-    align-items: center;
-    margin-bottom: 10px; /* Add margin to separate checkboxes */
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    /*white-space: nowrap;*/
+    /*align-items: center;*/
+    /*margin-bottom: 10px; !* Add margin to separate checkboxes *!*/
 
 }
 
@@ -61,4 +63,27 @@ input[type="checkbox"] {
 textarea {
     width: 100%;
     box-sizing: border-box;
+}
+
+.input-control input:focus{
+    /*font-size: 10px;*/
+    outline: 0;
+}
+
+.input-control.success input{
+    border-color: #04AA6D;
+}
+
+.input-control.error input{
+    border-color: red;
+
+}
+
+.input-control .error{
+
+    border-radius: 5px;
+    background-color: rgba(246, 18, 18, 0.2);
+    color: red;
+    font-size: 15px;
+
 }
