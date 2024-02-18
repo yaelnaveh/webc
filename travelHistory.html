@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Travel schedule</title>
+    <title>Travel History</title>
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="table.css">
-    <link rel="stylesheet" href="travelSchedule.css">
     <script src="travelSchedule.js" defer></script>
+
 </head>
 <body>
 <section id="header">
-    <!--<div class="logo">
-        <a href="#"><img src="logo.png" alt="logo"></a>
-    </div>-->
     <nav>
         <ul id="navbar">   <!--<was : ul id=" " ???>
             <li><a href="#homeeee"><img src="logo.png"></a></li>-->
@@ -26,15 +23,18 @@
 
 </section>
 
-<section class="bodyy">
+    <section class="bodyy">
 
 
-<h2>Travel schedule</h2>
+        <h2>My Travel History</h2>
+
     <br>
     <th><input type="date" class="search-input" id="dateSearch" placeholder="Search by date..."></th>
     <th><input type="text" class="search-input" id="sourceSearch" placeholder="Search by Source..."></th>
     <th><input type="text" class="search-input" id="destinationSearch" placeholder="Search by Destination..."></th>
-    <h3 id="systemMessage">System message</h3> <!--- figure out how to display it!! --->
+        <br>
+        <br>
+    <h4 class="input-control error" id="systemMessage">Please choose a ride first</h4> <!--- figure out how to display it!! --->
 <table class="table travelScheduleTable" id="travelScheduleTable">
     <thead>
         <tr>
@@ -43,7 +43,7 @@
             <th>Time </th>
             <th>Source </th>
             <th>Destination</th>
-            <th>Max</th>
+            <th>Available Places</th>
             <th>Driver </th>
             <th>Price </th>
         </tr>
@@ -51,79 +51,71 @@
     <tbody id="tbody">
         <tr>
             <td><input type="radio" name="selectRow"></td>
-            <td>21.02.24</td>
+            <td>21.01.24</td>
             <td>12:00</td>
             <td>Nahariya</td>
             <td>Beer Sheva</td>
-            <td>4</td>
+            <td>1</td>
             <td>Yael Naveh</td>
             <td>50</td>
         </tr>
             <tr>
             <td><input type="radio" name="selectRow"></td>
-            <td>22.02.24</td>
+            <td>24.01.24</td>
             <td>10:00</td>
-            <td>Nahariya</td>
+            <td>Beer Sheva</td>
             <td>Haifa</td>
-            <td>4</td>
-            <td>Esti Leykind</td>
+            <td>0</td>
+            <td>Me</td>
             <td>40</td>
         </tr>
         <tr>
             <td><input type="radio" name="selectRow"></td>
-            <td>22.02.24</td>
+            <td>26.01.24</td>
             <td>14:00</td>
-            <td>Nahariya</td>
+            <td>Haifa</td>
             <td>Beer Sheva</td>
-            <td>4</td>
+            <td>0</td>
             <td>Ofir Talmi</td>
             <td>50</td>
         </tr>
             <tr>
             <td><input type="radio" name="selectRow"></td>
-            <td>24.02.24</td>
+            <td>01.02.24</td>
             <td>20:00</td>
-            <td>Tel Aviv</td>
             <td>Beer Sheva</td>
-            <td>4</td>
+            <td>Tel Aviv</td>
+            <td>2</td>
             <td>Oren Maor</td>
             <td>20</td>
         </tr>
       <tr>
             <td><input type="radio" name="selectRow"></td>
-            <td>25.02.24</td>
+            <td>03.02.24</td>
             <td>15:00</td>
             <td>Tel Aviv</td>
             <td>Jerusalem</td>
-            <td>4</td>
+            <td>3</td>
             <td>Ori Lanir</td>
             <td>35</td>
         </tr>
           <tr>
             <td><input type="radio" name="selectRow"></td>
-            <td>25.02.24</td>
+            <td>15.02.24</td>
             <td>15:00</td>
             <td>Beer Sheva</td>
-            <td>Jerusalem</td>
+            <td>Haifa</td>
             <td>4</td>
-            <td>Ohad Amir</td>
+            <td>Me</td>
             <td>35</td>
         </tr>
     </tbody>
 </table>
 </section>
+<div class="button-container submit-link">
+<!--     <button type="submit" class="submit menu" name="selectRowButton" >Show Travel</button>-->
+          <a href="showTravel.html" class="button">Show Travel</a>
 
- <div class="container">
-     <button type="submit" class="submit" name="selectRowButton" id="registerButton" onclick="registerForRide()">Register</button>
-        <div class="popup" id="popup">
-            <img src="tick.png">
-            <h2>Thank You!</h2>
-            <p>You registered successfully for the ride</p>
-            <button type="button" onclick="closePopup()">OK</button>
-        </div>
  </div>
-
-
 </body>
 </html>
-
