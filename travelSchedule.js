@@ -1,6 +1,3 @@
-// Add an event listener to the "Register" button
-// document.getElementById("registerButton").addEventListener("click", registerForRide);
-
 
 const popup = document.getElementById("popup");
 const systemMessage= document.getElementById("systemMessage"); //doesn't work yet...
@@ -111,14 +108,3 @@ function registerForRide() {
         systemMessage.textContent = "Please select a ride option before submitting.";
     }
 }
-
-
-
-
-// document.addEventListener("DOMContentLoaded", () => {
-//    const sourceTableColumn=
-//        // document.getElementById("sourceSearch")
-//    document.querySelectorAll(".search-input".forEach(inputField => {
-//        const tableRows = inputField.closest("table").querySelectorAll("tbody tr")
-//    }))
-// });

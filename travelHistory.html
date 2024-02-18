@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="table.css">
     <script src="travelSchedule.js" defer></script>
+    <script src="travelHistory.js" defer></script>
 
 </head>
 <body>
@@ -50,7 +51,9 @@
     </thead>
     <tbody id="tbody">
         <tr>
-            <td><input type="radio" name="selectRow"></td>
+            <td><input type="radio" name="selectRow"
+                       value="{date: 21.01.24, time: 12:00, source: Nahariya, destination: Beer Sheva,
+                       availabe Places: 1, Driver: Yael Naveh}"></td>
             <td>21.01.24</td>
             <td>12:00</td>
             <td>Nahariya</td>
@@ -112,7 +115,7 @@
     </tbody>
 </table>
 </section>
-<div class="button-container submit-link">
+<div class="button-container submit-link" id="showTravelButton">
 <!--     <button type="submit" class="submit menu" name="selectRowButton" >Show Travel</button>-->
           <a href="showTravel.html" class="button">Show Travel</a>
 
