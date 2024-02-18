@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Travel</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+<section id="header">
+    <nav>
+        <ul id="navbar">
+<!--            <li><a href="#homeeee"><img src="logo.png"></a></li>-->
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="travelSchedule.html">Travel schedule</a></li>
+            <li><a href="newTrip.html">New Trip</a></li>
+        </ul>
+    </nav>
+
+</section>
+<div class="form container">
+    <div class="title">Travel Details</div>
+
+    <form action="#">
+<!--        <div class="input-row">-->
+            <div class="input-box">
+                <label>Source</label>
+                <div class="location-inputs">
+                    <input disabled type="text" placeholder="Beer Sheva" required>
+                    <input disabled type="text" placeholder="Derech Metzada" required>
+                    <input disabled type="text" placeholder="26" required>
+                </div>
+
+            </div>
+
+
+            <div class="input-box">
+                <label>Destination</label>
+                <div class="location-inputs">
+                    <input disabled type="text" placeholder="Tel Aviv" required>
+                    <input disabled type="text" placeholder="Rothschiled" required>
+                    <input disabled type="text" placeholder="123" required>
+                </div>
+            </div>
+<!--        </div>-->
+
+        <div class="input-row">
+            <div class="input-box">
+                <label>Date</label>
+                <input disabled type="text"  placeholder="12.02.24"  required>
+            </div>
+
+            <div class="input-box">
+                <label>Time</label>
+                <input disabled type="text" placeholder="10:00" required>
+            </div>
+
+            <div class="input-box">
+                <label>Number of Places</label>
+                <input disabled type="number" placeholder="2" required min="1" max="100">
+            </div>
+
+            <div class="input-box">
+                <label>Price</label>
+                <input disabled type="number" placeholder="25" required min="1" max="1000">
+            </div>
+        </div>
+
+
+        <div class="input-box">
+            <label>Comments</label>
+            <textarea disabled placeholder="I would like to bring a suitcase if possible, to ensure there is enough space in the luggage." rows="4" required></textarea>
+        </div>
+
+
+        <div class="checkbox">
+                <label >
+                    <input type="checkbox" required> I agree to the terms and conditions
+                </label>
+        </div>
+            <div class="button-container">
+
+            <div class="button">
+                    <input type="submit" class="submit" value="Edit">
+            </div>
+            <div class="button">
+                    <input type="submit" class="submit" value="Delete">
+            </div>
+            <div class="button">
+                <input id="registerToRide" type="submit" class="submit" value="Register">
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
