@@ -125,6 +125,11 @@ body {
 .button-container.submit-link:focus {
     outline: none; /* Remove focus outline */
 }
+
+#registerToRide{
+    visibility: hidden;
+
+}
 /*form*/
 
 
