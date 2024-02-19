@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>login</title>
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="form.css">
@@ -19,11 +19,16 @@
 <!--            <li><a href="#homeeee"><img src="logo.png"></a></li>-->
             <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="travelSchedule.html">Travel schedule</a></li>
+            <li><a href="travelSchedule.html">Travel Schedule</a></li>
+            <li><a href="travelHistory.html">My History</a></li>
             <li><a href="newTrip.html">New Trip</a></li>
         </ul>
     </nav>
+
+    <div id="nav-button">
+        <button class="btn" id="logonBtn"><a href="login.html">Sign In</a> </button>
+        <button class="btn" id="signUpBtn"><a href="signUp.html">Sign Up</a> </button>
+    </div>
 
 </section>
 
@@ -34,7 +39,7 @@
 <!--      <div class="container form">-->
         <label><b>Username</b></label>
           <label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <input type="text" placeholder="Enter Email" name="uname" required>
           </label>
 
           <label><b>Password</b></label>
@@ -42,7 +47,7 @@
               <input type="password" placeholder="Enter Password" name="psw" required>
           </label>
 
-          <button type="submit">Login</button>
+          <button type="submit" class="submit">Login</button>
         <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
@@ -56,6 +61,7 @@
         <span class="psw">Forgot <a href="#">password?</a></span>
 <!--      </div>-->
     </form>
+    Don't have an account? <a href="signUp.html">sign up</a>
 </div>
 
 

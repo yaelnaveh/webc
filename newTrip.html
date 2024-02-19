@@ -16,24 +16,38 @@
 <!--            <li><a href="#homeeee"><img src="logo.png"></a></li>-->
             <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="travelSchedule.html">Travel schedule</a></li>
+            <li><a href="travelSchedule.html">Travel Schedule</a></li>
+            <li><a href="travelHistory.html">My History</a></li>
             <li><a href="newTrip.html">New Trip</a></li>
         </ul>
     </nav>
+
+    <div id="nav-button">
+        <button class="btn" id="logonBtn"><a href="login.html">Sign In</a> </button>
+        <button class="btn" id="signUpBtn"><a href="signUp.html">Sign Up</a> </button>
+    </div>
 
 </section>
 <div class="form container">
     <div class="title">New Trip</div>
 
-    <form action="#">
+    <form id="tripForm" action="/">
 <!--        <div class="input-row">-->
             <div class="input-box">
                 <label>Source</label>
                 <div class="location-inputs">
-                    <input type="text" placeholder="City" required>
-                    <input type="text" placeholder="Street" required>
-                    <input type="text" placeholder="Number" required>
+                    <div class="input-control">
+                        <input id="citySource" name="citySource" type="text" placeholder="City" >
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="streetSource" name="streetSource" type="text" placeholder="Street" disabled>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="numberSource" name="numberSource" type="number" placeholder="No." disabled>
+                        <div class="error"></div>
+                    </div>
                 </div>
 
             </div>
@@ -42,52 +56,76 @@
             <div class="input-box">
                 <label>Destination</label>
                 <div class="location-inputs">
-                    <input type="text" placeholder="City" required>
-                    <input type="text" placeholder="Street" required>
-                    <input type="text" placeholder="Number" required>
+                    <div class="input-control">
+                        <input id="cityDestination" name="citySDestination" type="text" placeholder="City">
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="streetDestination" name="streetDestination" type="text" placeholder="Street" disabled>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="numberDestination" name="numberDestination" type="number" placeholder="No." disabled>
+                        <div class="error"></div>
+                    </div>
                 </div>
             </div>
 <!--        </div>-->
 
         <div class="input-row">
-            <div class="input-box">
+            <div class="input-box ">
                 <label>Date</label>
-                <input type="date" required>
+                <div class="input-control">
+                    <input id="dateTrip" name="dateTrip" type="date" ><!--required-->
+                    <div class="error"></div>
+                </div>
             </div>
 
             <div class="input-box">
                 <label>Time</label>
-                <input type="time" required>
+                <div class="input-control">
+                    <input id="timeTrip" name="timeTrip" type="time" ><!--required-->
+                    <div class="error"></div>
+                </div>
             </div>
 
             <div class="input-box">
                 <label>Number of Places</label>
-                <input type="number" placeholder="Enter number" required min="1" max="100">
+                <div class="input-control">
+                    <input id="numOfPlc" name="numOfPlc" type="number" placeholder="Enter number"  min="1" max="100"><!--required-->
+                    <div class="error"></div>
+                </div>
             </div>
 
             <div class="input-box">
                 <label>Price</label>
-                <input type="number" placeholder="Enter price" required min="1" max="1000">
+                <div class="input-control">
+                    <input id="price" name="price" type="number" placeholder="Enter price"  min="1" max="1000"><!--required-->
+                    <div class="error"></div>
+                </div>
             </div>
         </div>
 
 
         <div class="input-box">
             <label>Comments</label>
-            <textarea placeholder="Enter your comments" rows="4" required></textarea>
+            <textarea placeholder="Enter your comments" rows="4" ></textarea>
         </div>
 
 
         <div class="checkbox">
                 <label >
-                    <input type="checkbox" required> I agree to the terms and conditions
+                    <input type="checkbox" required> I agree to the terms and conditions  <!--required-->
                 </label>
         </div>
         <div class="button">
-                <input type="submit" class="submit" value="Register">
+                <input type="submit" class="submit" id="submitTrip" value="Register">
         </div>
     </form>
 </div>
+
+<script type="module" src="newTrip.js"></script>
+
 
 </body>
 </html>

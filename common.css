@@ -7,7 +7,8 @@
 
 body {
     background-color: #e6e6e6;
-    background-image: url("background (2).png");
+    /*background-image: url("background (2).png");*/
+    background-image: url("Driving Together (1).jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -30,17 +31,20 @@ body {
     position: fixed;
     top: 0;
     z-index: 1000; /* Ensure the nav bar appears on top */
+    display: flex;
+    justify-content: space-between;
 
 }
 
 #navbar{
     padding: 10px;
-    margin: 10px;
+    margin: 10px ;
     list-style: none;
     display: flex;
 }
 
 #navbar li a{
+    margin-right: 20px;
     padding: 20px 15px;
     text-decoration: none;
     color: white;
@@ -51,6 +55,31 @@ body {
 #navbar li a:hover{
      background: #03453f;
     text-transform: uppercase;
+}
+
+#nav-button{
+    margin-right: 10px;
+    /*background-color: red;*/
+}
+
+.btn{
+    padding: 15px 20px;
+    margin: 10px 5px;
+    border-radius: 25px;
+    background-color: rgb(94, 150, 148);
+    border-color: white;
+    border-width: 2px;
+}
+
+.btn a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.btn:hover{
+    transform: scale(1.06);
+    background-color:#0a3833;
 }
 
 .bodyy{
@@ -84,6 +113,17 @@ body {
     font-size: 16px;
 }
 
+.submit a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.submit:hover{
+    transform: scale(1.06);
+    background-color:#0a3833;
+    border-width: 5px;
+    border-color: white;
+}
 .search-input{
     background-color: #e6e6e6;
     font-weight: bold;
@@ -130,6 +170,63 @@ body {
     visibility: hidden;
 
 }
+
+.tooltip {
+  position:relative; /* making the .tooltip span a container for the tooltip text */
+  /*border-bottom:1px dashed #0a3833; !* little indicater to indicate it's hoverable *!*/
+    font-size: 12px;
+
+
+}
+.tooltip:before {
+  content: attr(data-text); /* here's the magic */
+  position:absolute;
+
+  /* vertically center */
+  top:50%;
+  transform:translateY(-50%);
+
+  /* move to right */
+  left:100%;
+  margin-left:15px; /* and add a small left margin */
+
+  /* basic styles */
+  width:200px;
+  padding:10px;
+  border-radius:10px;
+  background:#197067;
+  color: #fff;
+  text-align:center;
+
+  display:none; /* hide by default */
+}
+
+.tooltip:after {
+  content: "";
+  position:absolute;
+
+  /* position tooltip correctly */
+  left:100%;
+  margin-left:-5px;
+
+  /* vertically center */
+  top:50%;
+  transform:translateY(-50%);
+
+  /* the arrow */
+
+  border:10px solid #197067;
+  border-color: transparent #197067 transparent transparent;
+
+  display:none;
+}
+.tooltip:hover:before, .tooltip:hover:after {
+  display:block;
+}
+
+/*.tooltip:hover:before {
+  display:block;
+}*/
 /*form*/
 
 

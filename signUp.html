@@ -15,54 +15,65 @@
         <ul id="navbar">
 <!--            <li><a href="#homeeee"><img src="logo.png"></a></li>-->
             <li><a href="home.html">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="travelSchedule.html">Travel schedule</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="travelSchedule.html">Travel Schedule</a></li>
+            <li><a href="travelHistory.html">My History</a></li>
             <li><a href="newTrip.html">New Trip</a></li>
         </ul>
     </nav>
 
+    <div id="nav-button">
+        <button class="btn" id="logonBtn"><a href="login.html">Sign In</a> </button>
+        <button class="btn" id="signUpBtn"><a href="signUp.html">Sign Up</a> </button>
+    </div>
+
 </section>
 
-<div class="form container " >
+<div class="form container" >
     <div class="title">Sign Up</div>
     <p class="success register-success"></p>
     <form id="customerForm" action="/">
         <div class="input-row">
             <div class="input-control">
-                <label for="firstName">First Name</label>
+                <label for="firstName">First Name (*)</label>
                 <input id="firstName" name="firstName" type="text" placeholder="Enter your first name" > <!--required-->
                 <div class="error"></div>
             </div>
             <div class="input-control">
-                <label>Last Name</label>
+                <label>Last Name (*)</label>
                 <input id="lastName" name="lastName" type="text" placeholder="Enter your last name" ><!--required-->
                 <div class="error"></div>
             </div>
         </div>
          <div class="input-row">
             <div class="input-control">
-                <label>Phone Number</label>
+                <label>Phone Number (*)</label>
                 <input id= "phone" name="phone" type="text" placeholder="Enter your phone number" > <!--required-->
                 <div class="error"></div>
             </div>
 
             <div class="input-control">
-                <label>Email</label>
+                <label>Email (*)</label>
                 <input id="email" name="email" type="email" placeholder="Enter your email" > <!--required-->
                 <div class="error"></div>
             </div>
         </div>
 
          <div class="input-row">
-            <div class="input-control">
-                <label>Password</label>
+            <!--<div class="input-control">
+                <label>Password (*) (?)</label>
+                <input id="password" name= "password" type="password" placeholder="Enter your password" > &lt;!&ndash;required&ndash;&gt;
+                <div class="error"></div>
+            </div>-->
+             <div class="input-control">
+                <label>Password (*) </label>
+                 <span data-text="Password should contain between 8 to 14 characters, upper and lowercase letters, at least one number and at least one special character." class="tooltip">(?)</span>
                 <input id="password" name= "password" type="password" placeholder="Enter your password" > <!--required-->
                 <div class="error"></div>
             </div>
 
             <div class="input-control">
-                <label>Password2</label>
+                <label>Confirm Password (*)</label>
                 <input id="password2" name= "password2" type="password" placeholder="Enter your password2" > <!--required-->
                 <div class="error"></div>
             </div>
@@ -84,18 +95,24 @@
             </div>
         </div>
 
-        <div class="input-control">
+<!--        <div class="input-control">-->
                 <label>Address</label>
                 <div class="location-inputs">
-                    <input id="city" name="city" type="text" placeholder="City" > <!--required-->
-<!--                    <div class="error"></div>-->
-                    <input id="street" name="street" type="text" placeholder="Street" > <!--required-->
-<!--                    <div class="error"></div>-->
-                    <input id="number" name="number" type="number" placeholder="Number" > <!--required-->
-<!--                    <div class="error"></div>-->
+                    <div class="input-control">
+                        <input id="city" name="city" type="text" placeholder="City" > <!--required-->
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="street" name="street" type="text" placeholder="Street" disabled > <!--required-->
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="number" name="number" type="number" placeholder="No." disabled> <!--required-->
+                        <div class="error"></div>
+                    </div>
                 </div>
                 <br>
-        </div>
+<!--        </div>-->
 
         <div class="checkbox">
                 <label>
@@ -105,16 +122,16 @@
 
         <div class="checkbox">
                 <label >
-                    <input type="checkbox" > All the details are correct
+                    <input type="checkbox" required > All the details are correct
                 </label>
         </div>
 
         <div class="button">
-                <input type="submit" class="submit" value="Register">
+                <input type="submit" class="submit" id="submitSign" value="Register">
         </div>
     </form>
 </div>
 
-<script  src="signUp.js"></script>
+<script type="module" src="signUp.js"></script>
 </body>
 </html>

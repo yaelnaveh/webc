@@ -1,6 +1,7 @@
  console.log('hiiiii1')
+import {setError, setSuccess, doesNotContainNumbers, containsOnlyEnglishLetters, checkCity, checkStreet, checkNumber} from './common.js';
 
- const form=document.querySelector('#customerForm')
+ const customerForm=document.querySelector('#customerForm')
  const firstName=document.querySelector('#firstName')
  const lastName=document.querySelector('#lastName')
  const phone=document.querySelector('#phone')
@@ -10,30 +11,46 @@
  const city=document.querySelector('#city')
  const street=document.querySelector('#street')
  const number=document.querySelector('#number')
- form.addEventListener('submit',e=> {
+
+ /*document.addEventListener('DOMContentLoaded', function() {
+     // Add event listener to city input
+     city.addEventListener('input', disableStreetNum(city, street, number));
+ })
+  const  disableStreetNum= (city, street, number) => {
+        // Enable or disable street and house number based on whether city is filled
+        if (city.value.trim() !== '') {
+            street.disabled = false;
+            number.disabled = false;
+
+        }else {
+            street.disabled = false;
+            number.disabled = false;
+            street.value = '';
+            number.value = '';
+
+        }
+ }*/
+ document.addEventListener('DOMContentLoaded', function() {
+    // Add event listener to city input
+    city.addEventListener('input', function() {
+        // Enable or disable street and house number based on whether city is filled
+        if (city.value.trim() !== '') {
+            street.disabled = false;
+            number.disabled = false;
+
+        }else {
+            street.disabled = false;
+            number.disabled = false;
+            street.value = '';
+            number.value = '';
+
+        }
+    })
+})
+ customerForm.addEventListener('submit',e=> {
      e.preventDefault()
      validateInputs();
  })
-
- const setError=(element, message)=>{
-
-    const inputControl= element.parentElement;
-    const errorDisplay= inputControl.querySelector('.error');
-    errorDisplay.innerText=message;
-    inputControl.classList.add('error');
-    inputControl.classList.remove('success');
-
- }
-
- const setSuccess= element=>{
-    const inputControl= element.parentElement;
-    const errorDisplay= inputControl.querySelector('.error');
-
-    errorDisplay.innerText='';
-    inputControl.classList.add('success');
-    inputControl.classList.remove('error');
-
- }
 
  const isValidEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -47,7 +64,7 @@
 }
 
 // password
- function isStrongPassword(passwordValue) {
+ const isStrongPassword=(passwordValue)=> {
     // Regular expressions to check for various criteria
     let hasUpperCase = /[A-Z]/.test(passwordValue); // Check if the password has at least one uppercase letter
     let hasLowerCase = /[a-z]/.test(passwordValue); // Check if the password has at least one lowercase letter
@@ -80,22 +97,25 @@
     return true;
 }
 
-const validateInputs=()=>{
-    const firstNameValue=firstName.value.trim()
-    const lastNameValue=lastName.value.trim()
-    const phoneValue=phone.value.trim()
-    const emailValue=email.value.trim()
-    const passwordValue=password.value.trim()
-    const password2Value=password2.value.trim()
-    const cityValue=city.value.trim()
-    const streetValue=street.value.trim()
-    const numberValue=number.value.trim()
+const validateInputs=()=> {
+    const firstNameValue = firstName.value.trim()
+    const lastNameValue = lastName.value.trim()
+    const phoneValue = phone.value.trim()
+    const emailValue = email.value.trim()
+    const passwordValue = password.value.trim()
+    const password2Value = password2.value.trim()
+    const cityValue = city.value.trim()
+    const streetValue = street.value.trim()
+    const numberValue = number.value.trim()
 
 
     // firstName
-    if(firstNameValue===''){
+    if (firstNameValue === '') {
         setError(firstName, 'first name is required!')
-
+    }else if(!doesNotContainNumbers(firstNameValue)||firstNameValue.length<2){
+        setError(firstName, 'Enter a valid first name!')
+    }else if(!containsOnlyEnglishLetters(firstNameValue)){
+        setError(firstName, 'Enter a first name in English only')
     }else{
         setSuccess(firstName);
     }
@@ -103,7 +123,10 @@ const validateInputs=()=>{
     // lastName
     if(lastNameValue===''){
         setError(lastName, 'last name is required!')
-
+    }else if(!doesNotContainNumbers(lastNameValue)||lastNameValue.length<2){
+        setError(lastName, 'Enter a valid last name!')
+    }else if(!containsOnlyEnglishLetters(lastNameValue)){
+        setError(lastName, 'Enter a last name in English only')
     }else{
         setSuccess(lastName);
     }
@@ -150,6 +173,11 @@ const validateInputs=()=>{
 
     // address
     // city
+    checkCity(cityValue, city);
+    // street
+    checkStreet(streetValue, street);
+    // number
+    checkNumber(numberValue,number);
 
  }
 
