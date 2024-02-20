@@ -11,19 +11,6 @@
 </head>
 <body>
 <section id="header">
-    <!--<div class="logo">
-        <a href="#"><img src="logo.png" alt="logo"></a>
-    </div>-->
-    <nav>
-        <ul id="navbar">
-<!--            <li><a href="#homeeee"><img src="logo.png"></a></li>-->
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-<!--            <li><a href="travelSchedule.html">Travel Schedule</a></li>-->
-<!--            <li><a href="travelHistory.html">My History</a></li>-->
-<!--            <li><a href="newTrip.html">New Trip</a></li>-->
-        </ul>
-    </nav>
 
     <div id="nav-button">
         <button class="btn" id="logonBtn"><a href="login.html">Sign In</a> </button>
@@ -47,7 +34,7 @@
               <input type="password" placeholder="Enter Password" name="psw" required>
           </label>
 
-          <button type="submit" class="submit"><a href="home.html">Login</a></button>
+          <button type="submit" class="submit" id="loginBtn" onclick="checkValue()">Login</button>
 
         <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -65,8 +52,8 @@
     Don't have an account? <a href="signUp.html">sign up</a>
 </div>
 
-
-
+    <script src="login.js"></script>
+<!--defer-->
 </body>
 </html>
 

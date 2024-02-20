@@ -169,6 +169,16 @@ body {
     /*outline: none;*/
 }
 
+<<<<<<< HEAD
+.button-container{
+    display: flex;
+    padding-right: 10px
+}
+
+.button {
+    margin-right: 25px;
+}
+=======
 /*.button-container{*/
 /*    display: flex;*/
 /*}*/
@@ -176,6 +186,7 @@ body {
 /*.button {*/
 /*    margin-right: 10px;*/
 /*}*/
+>>>>>>> origin/main
 
 /*.button-container.submit-link{*/
 /*    display: inline-block;*/
