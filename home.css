@@ -33,3 +33,9 @@
     border-width: 5px;
     border-color: white;
 }
+
+@media (max-width: 1200px) {
+    .menu {
+        margin: 50px 10px;
+    }
+}
