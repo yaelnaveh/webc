@@ -1,17 +1,17 @@
 
 const popup = document.getElementById("popup");
-const systemMessage= document.getElementById("systemMessage"); //doesn't work yet...
-var sourceSearchBar= document.getElementById("sourceSearch");
-var destinationSearchBar= document.getElementById("destinationSearch");
-var dateSearchBar= document.getElementById("dateSearch");
-var tbody= document.getElementById("tbody");
-var originalTableData= tbody.innerHTML;
+let systemMessageSchdlPage= document.getElementById("systemMessageSchdlPage");
+let sourceSearchBar= document.querySelector(".search-input.sourceSearch");
+let destinationSearchBar = document.querySelector(".search-input.destinationSearch");
+let dateSearchBar = document.querySelector(".search-input.dateSearch");
+let tbody = document.getElementById("tbody");
+let originalTableData = tbody.innerHTML;
 
-sourceSearchBar.addEventListener('input', Search)
-destinationSearchBar.addEventListener('input', Search)
-dateSearchBar.addEventListener('input', Search)
-//search function
-function Search(){
+sourceSearchBar.addEventListener('input', search)
+destinationSearchBar.addEventListener('input', search)
+dateSearchBar.addEventListener('input', search)
+
+function search(){
     tbody.innerHTML= originalTableData;
     let rows= tbody.children //all the tr tags
 
@@ -31,7 +31,7 @@ function Search(){
              if(sourceSearchBar.value.length>0 && destinationSearchBar.value.length>0 && dateSearchBar.value){
                 if(currentSourceRowText.startsWith(searchSourceText) &&
                     currentDestinationRowText.startsWith(searchDestinationText) &&
-                    (currentDateRow == searchDate)){
+                    (currentDateRow === searchDate)){
                     console.log(currentDateRow)
                 filteredRows+= rows[i].outerHTML; //current tr
                 }
@@ -48,7 +48,7 @@ function Search(){
             }
             else if(sourceSearchBar.value.length>0 && destinationSearchBar.value.length<1 && dateSearchBar.value){
                 if(currentSourceRowText.startsWith(searchSourceText)&&
-                    (currentDateRow == searchDate)){
+                    (currentDateRow === searchDate)){
                     filteredRows+= rows[i].outerHTML; //current tr
                 }
             }
@@ -63,27 +63,26 @@ function Search(){
                      sourceSearchBar.value.length<1 &&
                      dateSearchBar.value){
                 if(currentDestinationRowText.startsWith(searchDestinationText)&&
-                    (currentDateRow == searchDate)){
+                    (currentDateRow === searchDate)){
                     filteredRows+= rows[i].outerHTML; //current tr
                 }
             }
              else if(destinationSearchBar.value.length<1 &&
                      sourceSearchBar.value.length<1 &&
                      dateSearchBar.value){
-                 if(currentDateRow == searchDate){
+                 if(currentDateRow === searchDate){
                     filteredRows+= rows[i].outerHTML; //current tr
                 }
              }
-
         }
         tbody.innerHTML= filteredRows;
 }
+// export {search};
 
 function dateFixer(dateAsYYYYMMDD) {
   const aYear = dateAsYYYYMMDD.slice(2, 4); //work only for year>2000!
   const aMonth = dateAsYYYYMMDD.slice(5, 7);
   const aDay = dateAsYYYYMMDD.slice(8, 10);
-  console.log(`${aDay}.${aMonth}.${aYear}`)////
   return `${aDay}.${aMonth}.${aYear}`
 }
 function openPopup(){
@@ -93,18 +92,20 @@ function closePopup(){
 popup.classList.remove("open-popup");
 }
 
+function displayError(){
+systemMessageSchdlPage.classList.add("open-error");
+    setTimeout(function () {
+        systemMessageSchdlPage.classList.remove("open-error");
+    }, 4000);
+}
+// export {displayError};
 
 function registerForRide() {
-    // Find the selected radio button
-    var selectedOption = document.querySelector('input[name="selectRow"]:checked');
-    //var->const (?)
+    let selectedOption = document.querySelector('input[name="selectRow"]:checked');
     if (selectedOption) {
         selectedOption.checked = false;
         openPopup()
     } else {
-        // Inform the user to select an option
-        // displayMessage("Please select a ride option before submitting.", "error");
-        document.getElementById('systemMessage').className = 'error';
-        systemMessage.textContent = "Please select a ride option before submitting.";
+        displayError()
     }
 }

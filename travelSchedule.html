@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="table.css">
     <link rel="stylesheet" href="travelSchedule.css">
-    <script src="travelSchedule.js" defer></script>
 </head>
 <body>
 <section id="header">
@@ -27,6 +26,7 @@
     <div id="nav-button">
         <button class="btn" id="logonBtn"><a href="login.html">Sign In</a> </button>
         <button class="btn" id="signUpBtn"><a href="signUp.html">Sign Up</a> </button>
+        <button class="btn" id="logOutBtn"><a href="first.html">Logout</a> </button>
     </div>
 
 </section>
@@ -36,10 +36,19 @@
 
 <h2>Travel schedule</h2>
     <br>
-    <th><input type="date" class="search-input" id="dateSearch" placeholder="Search by date..."></th>
-    <th><input type="text" class="search-input" id="sourceSearch" placeholder="Search by Source..."></th>
-    <th><input type="text" class="search-input" id="destinationSearch" placeholder="Search by Destination..."></th>
-    <h3 id="systemMessage">System message</h3> <!--- figure out how to display it!! --->
+    <th><input type="date" class="search-input dateSearch"  placeholder="Search by date..."></th>
+    <th><input type="text" class="search-input sourceSearch" placeholder="Search by Source..."></th>
+    <th><input type="text" class="search-input destinationSearch"  placeholder="Search by Destination..."></th>
+    <br>
+<!--        <br>-->
+<!--    <th><input type="date" class="search-input " id="dateSearch" placeholder="Search by date..."></th>-->
+<!--    <th><input type="text" class="search-input " id="sourceSearch" placeholder="Search by Source..."></th>-->
+<!--    <th><input type="text" class="search-input " id="destinationSearch" placeholder="Search by Destination..."></th>-->
+<!--    <br>-->
+<!--          <div class="input-control">-->
+<!--    <div class="error" id="systemMessage" unchosen-error="Please choose a ride first"></div> &lt;!&ndash;- figure out how to display it!! -&ndash;&gt;-->
+<!--        </div>-->
+    <div class= "input-control error" id="systemMessageSchdlPage" unchosen-error="Please choose a ride first"></div> <!--- figure out how to display it!! --->
 <table class="table travelScheduleTable" id="travelScheduleTable">
     <thead>
         <tr>
@@ -309,6 +318,7 @@
         </div>
  </div>
 
+    <script src="travelSchedule.js" defer></script>
 
 </body>
 </html>

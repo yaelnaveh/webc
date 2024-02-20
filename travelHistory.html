@@ -5,18 +5,12 @@
     <title>Travel History</title>
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="table.css">
-    <script src="travelSchedule.js" defer></script>
-    <script src="travelHistory.js" defer></script>
 
 </head>
 <body>
 <section id="header">
-    <!--<div class="logo">
-        <a href="#"><img src="logo.png" alt="logo"></a>
-    </div>-->
     <nav>
         <ul id="navbar">
-<!--            <li><a href="#homeeee"><img src="logo.png"></a></li>-->
             <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="travelSchedule.html">Travel Schedule</a></li>
@@ -28,6 +22,7 @@
     <div id="nav-button">
         <button class="btn" id="logonBtn"><a href="login.html">Sign In</a> </button>
         <button class="btn" id="signUpBtn"><a href="signUp.html">Sign Up</a> </button>
+         <button class="btn" id="logOutBtn"><a href="first.html">Logout</a> </button>
     </div>
 
 </section>
@@ -38,12 +33,11 @@
         <h2>My Travel History</h2>
 
     <br>
-    <th><input type="date" class="search-input" id="dateSearch" placeholder="Search by date..."></th>
-    <th><input type="text" class="search-input" id="sourceSearch" placeholder="Search by Source..."></th>
-    <th><input type="text" class="search-input" id="destinationSearch" placeholder="Search by Destination..."></th>
+    <th><input type="date" class="search-input dateSearch" placeholder="Search by date..."></th>
+    <th><input type="text" class="search-input sourceSearch" placeholder="Search by Source..."></th>
+    <th><input type="text" class="search-input destinationSearch" placeholder="Search by Destination..."></th>
         <br>
-        <br>
-    <h4 class="input-control error" id="systemMessage">Please choose a ride first</h4> <!--- figure out how to display it!! --->
+    <div class="input-control error" id="systemMessageHistPage" unchosen-error="Please choose a ride first"></div>
 <table class="table travelScheduleTable" id="travelScheduleTable">
     <thead>
         <tr>
@@ -59,9 +53,9 @@
     </thead>
     <tbody id="tbody">
         <tr>
-            <td><input type="radio" name="selectRow"
-                       value="{date: 21.01.24, time: 12:00, source: Nahariya, destination: Beer Sheva,
-                       availabe Places: 1, Driver: Yael Naveh}"></td>
+            <td><input type="radio" name="selectRow"></td>
+<!--                       value="{date: 21.01.24, time: 12:00, source: Nahariya, destination: Beer Sheva,-->
+<!--                       availabe Places: 1, Driver: Yael Naveh}"-->
             <td>21.01.24</td>
             <td>12:00</td>
             <td>Nahariya</td>
@@ -107,7 +101,7 @@
             <td>Tel Aviv</td>
             <td>Jerusalem</td>
             <td>3</td>
-            <td>Ori Lanir</td>
+            <td>Nati Lanir</td>
             <td>35</td>
         </tr>
           <tr>
@@ -123,11 +117,10 @@
     </tbody>
 </table>
 </section>
-<!--<div class="button-container submit-link" id="showTravelButton">
-&lt;!&ndash;     <button type="submit" class="submit menu" name="selectRowButton" >Show Travel</button>&ndash;&gt;
-          <a href="showTravel.html" class="button">Show Travel</a>
-
- </div>-->
-<button type="submit" class="submit" ><a href="showTravel.html">Show Travel</a></button>
+<button type="submit" class="submit" id="showTravelButton">Show Travel</button>
+<!--onclick="checkRadio()"-->
+<!--<a href="showTravel.html">Show Travel</a>-->
+<script src="travelSchedule.js" defer></script>
+<script src="travelHistory.js" defer></script>
 </body>
 </html>
