@@ -135,10 +135,11 @@ body {
 
 .button-container{
     display: flex;
+    padding-right: 10px
 }
 
 .button {
-    margin-right: 10px;
+    margin-right: 25px;
 }
 
 .button-container.submit-link{
