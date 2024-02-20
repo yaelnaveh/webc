@@ -89,7 +89,7 @@ body {
     left:10px;
   }
   100% {
-    left: -500px;
+    left: -200px;
   }
 }
 
@@ -120,4 +120,21 @@ body {
   100% {
     opacity: 100%;
   }
+}
+
+@media screen and (max-width: 1000px) {
+  #showcase h1 {
+    font-size: 70px;
+  }
+  @keyframes car {
+  0% {
+    left: -2000px;
+  }
+  40%{
+    left:70px;
+  }
+  100% {
+    left: 10px;
+  }
+}
 }
