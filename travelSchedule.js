@@ -77,7 +77,6 @@ function search(){
         }
         tbody.innerHTML= filteredRows;
 }
-// export {search};
 
 function dateFixer(dateAsYYYYMMDD) {
   const aYear = dateAsYYYYMMDD.slice(2, 4); //work only for year>2000!
@@ -98,7 +97,6 @@ systemMessageSchdlPage.classList.add("open-error");
         systemMessageSchdlPage.classList.remove("open-error");
     }, 4000);
 }
-// export {displayError};
 
 function registerForRide() {
     let selectedOption = document.querySelector('input[name="selectRow"]:checked');
