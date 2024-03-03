@@ -4,7 +4,7 @@
 }
 
 body {
-  background-image: url('רקע ריק ללא מכונית.png');
+  background-image: url('emptyBackground.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

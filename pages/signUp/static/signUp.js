@@ -1,5 +1,5 @@
  console.log('hiiiii1')
-import {setError, setSuccess, doesNotContainNumbers, containsOnlyEnglishLetters, checkCity, checkStreet, checkNumber} from './common.js';
+import {setError, setSuccess, doesNotContainNumbers, containsOnlyEnglishLetters, checkCity, checkStreet, checkNumber} from '../../static/common.js';
 
  const customerForm=document.querySelector('#customerForm')
  const firstName=document.querySelector('#firstName')

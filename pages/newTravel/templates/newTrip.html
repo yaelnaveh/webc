@@ -1,38 +1,11 @@
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>newTrip</title>
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="form.css">
-</head>
-<body>
-<section id="header">
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <img src="icons8-menu-50%20(1).png">
-        </label>
-        <ul id="navbar">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="travelSchedule.html">Travel Schedule</a></li>
-            <li><a href="travelHistory.html">My History</a></li>
-            <li><a href="newTrip.html">New Trip</a></li>
-        </ul>
-    </nav>
+{% extends 'base.html' %}
+{% block title %}New Travel{% endblock %}
+{% block main %}
 
-    <div id="nav-button">
-        <button class="btn" id="logonBtn"><a href="login.html">Sign In</a> </button>
-        <button class="btn" id="signUpBtn"><a href="signUp.html">Sign Up</a> </button>
-        <button class="btn" id="logOutBtn"><a href="first.html">Logout</a> </button>
-    </div>
-
-</section>
 <div class="form container">
     <div class="title">New Trip</div>
 
-    <form id="tripForm" action="/">
+    <form id="tripForm" action="/static">
 <!--        <div class="input-row">-->
             <div class="input-box">
                 <label>Source</label>
@@ -71,7 +44,6 @@
                     </div>
                 </div>
             </div>
-<!--        </div>-->
 
         <div class="input-row">
             <div class="input-box ">
@@ -125,8 +97,6 @@
     </form>
 </div>
 
-<script type="module" src="newTrip.js"></script>
+<script type="module" src="../static/newTrip.js"></script>
 
-
-</body>
-</html>
+{% endblock %}

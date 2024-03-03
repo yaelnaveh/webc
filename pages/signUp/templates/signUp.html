@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>signUp</title>
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="form.css">
-<!--    <script src='https://kit.fontawesome.com/a076d05399.js' ></script>-->
-</head>
-<body>
-<section id="header">
-
-    <div id="nav-button">
-        <button class="btn" id="logonBtn"><a href="login.html">Sign In</a> </button>
-        <button class="btn" id="signUpBtn"><a href="signUp.html">Sign Up</a> </button>
-        <button class="btn" id="logOutBtn"><a href="first.html">Logout</a> </button>
-    </div>
-
-</section>
+{% extends 'base.html' %}
+{% block title %}signup{% endblock %}
+{% block main %}
 
 <div class="form container" >
     <div class="title">Sign Up</div>
     <p class="success register-success"></p>
-    <form id="customerForm" action="/">
+    <form id="customerForm" action="/static">
         <div class="input-row">
             <div class="input-control">
                 <label for="firstName">First Name (*)</label>
@@ -116,6 +100,5 @@
     </form>
 </div>
 
-<script type="module" src="signUp.js"></script>
-</body>
-</html>
+<script type="module" src="../static/signUp.js"></script>
+{% endblock %}

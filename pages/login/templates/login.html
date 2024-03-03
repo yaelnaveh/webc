@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>login</title>
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="form.css">
 
-
-</head>
-<body>
-<section id="header">
-
-    <div id="nav-button">
-        <button class="btn" id="logonBtn"><a href="login.html">Sign In</a> </button>
-        <button class="btn" id="signUpBtn"><a href="signUp.html">Sign Up</a> </button>
-    </div>
-
-</section>
+{% extends 'base.html' %}
+{% block title %}login{% endblock %}
+{% block main %}
 
 <div class="form container">
     <div class="title">Login</div>
-    <form action="action_page.php" method="post">
+    <form action="/login" method="post">
 
 <!--      <div class="container form">-->
         <label><b>Username</b></label>
@@ -34,7 +18,7 @@
               <input type="password" placeholder="Enter Password" name="psw" required>
           </label>
 
-          <button type="submit" class="submit"><a href="home.html">Login</a></button>
+          <button type="submit" class="submit"><a href="/home">Login</a></button>
 
         <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -49,13 +33,14 @@
         <span class="psw">Forgot <a href="#">password?</a></span>
 <!--      </div>-->
     </form>
-    Don't have an account? <a href="signUp.html">sign up</a>
+    Don't have an account? <a href="../../signUp/templates/signUp.html">sign up</a>
 </div>
 
 
+{% endblock %}
 
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
 
 
 

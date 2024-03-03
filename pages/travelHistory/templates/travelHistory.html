@@ -1,35 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Travel History</title>
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="table.css">
-
-</head>
-<body>
-<section id="header">
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <img src="icons8-menu-50%20(1).png">
-        </label>
-        <ul id="navbar">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="travelSchedule.html">Travel Schedule</a></li>
-            <li><a href="travelHistory.html">My History</a></li>
-            <li><a href="newTrip.html">New Trip</a></li>
-        </ul>
-    </nav>
-
-    <div id="nav-button">
-        <button class="btn" id="logonBtn"><a href="login.html">Sign In</a> </button>
-        <button class="btn" id="signUpBtn"><a href="signUp.html">Sign Up</a> </button>
-        <button class="btn" id="logOutBtn"><a href="first.html">Logout</a> </button>
-    </div>
-
-</section>
+{% extends 'base.html' %}
+{% block title %}Travel History{% endblock %}
+{% block main %}
 
     <section class="bodyy">
 
@@ -122,7 +93,6 @@
 <button type="submit" class="submit" id="showTravelButton">Show Travel</button>
 <!--onclick="checkRadio()"-->
 <!--<a href="showTravel.html">Show Travel</a>-->
-<script src="travelSchedule.js" defer></script>
-<script src="travelHistory.js" defer></script>
-</body>
-</html>
+<script src="../../travelSchedule/static/travelSchedule.js" defer></script>
+<script src="../static/travelHistory.js" defer></script>
+{% endblock %}
