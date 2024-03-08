@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
+
 {% block main %}
+<!--):-->
+<link rel="stylesheet" href="/pages/home/static/home.css">
+<!--):-->
     <div >
         <ul class="menu">
-<!--            <li><a href="#homeeee"><img src="logo.png"></a></li>-->
-            <li class="box"><a href="../../travelSchedule/templates/travelSchedule.html">Travel schedule</a></li>
-            <li class="box"><a href="../../travelHistory/templates/travelHistory.html">My travel history</a></li>
-            <li class="box"><a href="../../newTravel/templates/newTrip.html">Create a new trip</a></li>
+            <li class="box"><a href="/travelSchedule">Travel schedule</a></li>
+            <li class="box"><a href="/travelHistory">My travel history</a></li>
+            <li class="box"><a href="/newTravel">Create a new trip</a></li>
         </ul>
-      <!--  <h3>travel schedule</h3>
-        <h3>My travel history</h3>
-        <h3>Create a new trip</h3>-->
     </div>
+
+
+{% if session.get('logged_in') %}
+    <h3>Email: {{session.get('email')}}</h3>
+{% else %}
+    <h3>Email: ***</h3>
+{% endif %}
+
 
 {% endblock %}

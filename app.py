@@ -1,7 +1,13 @@
-from flask import Flask, redirect, url_for, render_template, request, session
+# from flask import Flask
+# app = Flask(__name__)
+# app.secret_key = '123'
+########################################
+from flask import Flask
+
+###### App setup
 app = Flask(__name__)
-app.secret_key = '123'
-###########
+app.config.from_pyfile('settings.py')
+#######################################
 
 # if __name__ == '__main__':
 #     app.run(debug=True)

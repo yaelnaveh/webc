@@ -1,3 +1,4 @@
+
 <header id="header">
     <nav>
         <input type="checkbox" id="check">
@@ -5,7 +6,7 @@
             <img src="/static/icons8-menu-50%20(1).png">
         </label>
         <ul id="navbar">
-            <li><a href="/">Home</a></li>
+            <li><a href="/home">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/travelSchedule">Travel Schedule</a></li>
             <li><a href="/travelHistory">My History</a></li>
@@ -14,8 +15,15 @@
     </nav>
 
     <div id="nav-button">
+        {% if session.get('logged_in') %}
+            <button class="btn" id="logOutBtn"><a href="/entry">Logout</a> </button>
+        <script>
+            console.log("User is logged in.");
+        </script>
+        {% else %}
         <button class="btn" id="logonBtn"><a href="/login">Sign In</a> </button>
-        <button class="btn" id="signUpBtn"><a href="/signup">Sign Up</a> </button>
-        <button class="btn" id="logOutBtn"><a href="/entry">Logout</a> </button>
+        {% endif %}
+        <button class="btn" id="signUpBtn"><a href="/signUp">Sign Up</a> </button>
+
     </div>
 </header>
