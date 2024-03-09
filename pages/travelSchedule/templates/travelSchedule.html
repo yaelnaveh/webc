@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
-{% block title %}Travel Schedule{% endblock %}
-{% block main %}
+ {% block page_head %}
+    <title> Travel Schedule</title>
+     {{ super() }}
+        {% block page_head_css %}
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}"/>
+        {% endblock %}
+    {% endblock %}
+
+
+<!--{% block title %}Travel Schedule{% endblock %}-->
+{% block page_body_main_content %}
 
 <section class="bodyy">
 
@@ -157,117 +166,7 @@
             <td data-label="Max">4</td>
             <td data-label="Driver">Yael Naveh</td>
             <td data-label="Price">50</td>
-        </tr>
-            <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>22.02.24</td>
-            <td>10:00</td>
-            <td>Nahariya</td>
-            <td>Haifa</td>
-            <td>4</td>
-            <td>Esti Leykind</td>
-            <td>40</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>22.02.24</td>
-            <td>14:00</td>
-            <td>Nahariya</td>
-            <td>Beer Sheva</td>
-            <td>4</td>
-            <td>Ofir Talmi</td>
-            <td>50</td>
-        </tr>
-            <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>24.02.24</td>
-            <td>20:00</td>
-            <td>Tel Aviv</td>
-            <td>Beer Sheva</td>
-            <td>4</td>
-            <td>Oren Maor</td>
-            <td>20</td>
-        </tr>
-      <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>25.02.24</td>
-            <td>15:00</td>
-            <td>Tel Aviv</td>
-            <td>Jerusalem</td>
-            <td>4</td>
-            <td>Ori Lanir</td>
-            <td>35</td>
-        </tr>
-          <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>25.02.24</td>
-            <td>15:00</td>
-            <td>Beer Sheva</td>
-            <td>Jerusalem</td>
-            <td>4</td>
-            <td>Ohad Amir</td>
-            <td>35</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td data-label="Date">21.02.24</td>
-            <td data-label="Time">12:00</td>
-            <td data-label="Source">Nahariya</td>
-            <td data-label="Destination">Beer Sheva</td>
-            <td data-label="Max">4</td>
-            <td data-label="Driver">Yael Naveh</td>
-            <td data-label="Price">50</td>
-        </tr>
-            <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>22.02.24</td>
-            <td>10:00</td>
-            <td>Nahariya</td>
-            <td>Haifa</td>
-            <td>4</td>
-            <td>Esti Leykind</td>
-            <td>40</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>22.02.24</td>
-            <td>14:00</td>
-            <td>Nahariya</td>
-            <td>Beer Sheva</td>
-            <td>4</td>
-            <td>Ofir Talmi</td>
-            <td>50</td>
-        </tr>
-            <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>24.02.24</td>
-            <td>20:00</td>
-            <td>Tel Aviv</td>
-            <td>Beer Sheva</td>
-            <td>4</td>
-            <td>Oren Maor</td>
-            <td>20</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>25.02.24</td>
-            <td>15:00</td>
-            <td>Tel Aviv</td>
-            <td>Jerusalem</td>
-            <td>4</td>
-            <td>Ori Lanir</td>
-            <td>35</td>
-        </tr>
-          <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>25.02.24</td>
-            <td>15:00</td>
-            <td>Beer Sheva</td>
-            <td>Jerusalem</td>
-            <td>4</td>
-            <td>Ohad Amir</td>
-            <td>35</td>
-        </tr>
+
     </tbody>
 </table>
 </section>
@@ -281,8 +180,6 @@
             <button type="button" onclick="closePopup()">OK</button>
         </div>
  </div>
-<script src="pages/travelSchedule/static/travelSchedule.js" defer></script>
-<!--    <script src="../static/travelSchedule.js" defer></script>-->
-<!--{% include('js.html') %}-->
+
 {% endblock %}
-<!--<script src="{{url_for('pages', filename='travelSchedule/static/travelSchedule.js') }}"></script>-->
+{% block page_body_js %}<script src="{{url_for('travelSchedule.static', filename='travelSchedule.js') }}"></script>{% endblock %}

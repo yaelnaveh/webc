@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
-{% block title %}Travel History{% endblock %}
-{% block main %}
+ {% block page_head %}
+    <title> Travel History</title>
+     {{ super() }}
+        {% block page_head_css %}
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}"/>
+        {% endblock %}
+    {% endblock %}
+
+
+{% block page_body_main_content %}
 
     <section class="bodyy">
 
@@ -91,8 +99,10 @@
 </table>
 </section>
 <button type="submit" class="submit" id="showTravelButton">Show Travel</button>
-<!--onclick="checkRadio()"-->
-<!--<a href="showTravel.html">Show Travel</a>-->
-<script src="../../travelSchedule/static/travelSchedule.js" defer></script>
-<script src="../static/travelHistory.js" defer></script>
+
+{% endblock %}
+
+{% block page_body_js %}
+<script src="{{url_for('travelSchedule.static', filename='travelSchedule.js') }}"></script>
+<script src="{{url_for('travelHistory.static', filename='travelHistory.js') }}"></script>
 {% endblock %}

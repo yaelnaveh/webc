@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
-{% block title %}New Travel{% endblock %}
-{% block main %}
+ {% block page_head %}
+    <title> New Travel</title>
+     {{ super() }}
+        {% block page_head_css %}
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}"/>
+        {% endblock %}
+    {% endblock %}
+
+
+{% block page_body_main_content %}
 
 <div class="form container">
     <div class="title">New Trip</div>
@@ -96,7 +104,8 @@
         </div>
     </form>
 </div>
+{% endblock %}
 
-<script type="module" src="../static/newTrip.js"></script>
-
+{% block page_body_js %}
+    <script type="module" src="{{ url_for('newTravel.static', filename='newTrip.js') }}"></script>
 {% endblock %}

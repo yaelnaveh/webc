@@ -1,5 +1,5 @@
 console.log('hii2')
-import {setError, setSuccess, doesNotContainNumbers, containsOnlyEnglishLetters, checkCity, checkStreet, checkNumber} from '../../static/common.js';
+import {setError, setSuccess, doesNotContainNumbers, containsOnlyEnglishLetters, checkCity, checkStreet, checkNumber} from '../../static/js/common.js';
 // import { setSuccess } from './signUp.js';
 const tripForm=document.querySelector('#tripForm')
 const citySource=document.querySelector('#citySource')

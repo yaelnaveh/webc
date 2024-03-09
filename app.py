@@ -3,6 +3,8 @@
 # app.secret_key = '123'
 ########################################
 from flask import Flask
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
 ###### App setup
 app = Flask(__name__)
@@ -61,6 +63,41 @@ app.config.from_pyfile('settings.py')
 # def entry_page():
 #     return render_template('first.html')
 #
+
+uri = "mongodb+srv://esti:esti@cluster0.zq1bzx1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+# Create a new client and connect to the server
+cluster = MongoClient(uri, server_api=ServerApi('1'))
+database = cluster['DrivingTogether']
+users_col = database['users']
+travels_col = database['travels']
+
+# #insert_many
+# travels_list = [
+#     {'Date': '21.02.24', 'Time': '12:30', 'Source': 'Nahariya', 'Destination': 'Beer Sheva',
+#      'Max': '4', 'Driver': 'Yael Naveh', 'Price': 50},
+#     {'Date': '21.02.24', 'Time': '16:30', 'Source': 'Nahariya', 'Destination': 'Beer Sheva',
+#      'Max': '4', 'Driver': 'Ofir Talmi', 'Price': 50},
+#     {'Date': '22.02.24', 'Time': '11:30', 'Source': 'Haifa', 'Destination': 'Beer Sheva',
+#      'Max': '4', 'Driver': 'Ori Lanir', 'Price': 50},
+#     {'Date': '21.02.24', 'Time': '12:30', 'Source': 'Tel Aviv', 'Destination': 'Beer Sheva',
+#      'Max': '4', 'Driver': 'Ohad Amir', 'Price': 50},
+#     {'Date': '21.02.24', 'Time': '12:30', 'Source': 'Beer Sheva', 'Destination': 'Tel Aviv',
+#      'Max': '4', 'Driver': 'Esti Leykind', 'Price': 50},
+#     {'Date': '21.02.24', 'Time': '12:30', 'Source': 'Haifa', 'Destination': 'Tel Aviv',
+#      'Max': '4', 'Driver': 'Oren Maor', 'Price': 50}
+# ]
+#
+# users_list = [
+#     {'email': 'esti.l@gmail.com', 'password': 'esti123', 'name': 'esti ley'},
+#     {'email': 'yael.n@gmail.com', 'password': 'yael123', 'name': 'yael nav'},
+#     {'email': 'Ofir@gmail.com', 'password': 'Ofir123', 'name': 'Ofir Talmi'},
+#     {'email': 'OrenM@gmail.com', 'password': 'Oren123', 'name': 'Oren Maor'},
+#     {'email': 'Ohad@gmail.com', 'password': 'Ohad123', 'name': 'Ohad Amir'},
+#     {'email': 'Ori@gmail.com', 'password': 'Ori123', 'name': 'Ori Lanir'}
+# ]
+# travels_col.insert_many(travels_list)
+# users_col.insert_many(users_list)
 
 ###Pages
 #about
