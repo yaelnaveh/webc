@@ -1,53 +1,5 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--     <title>{% block title %}Base{% endblock %}</title>-->
-<!--  {% include('styles.html') %}-->
-<!--</head>-->
-<!--<body>-->
-<!--{% include('header.html') %}-->
-
-<!--{% block main %}-->
-<!--<h2>*</h2>-->
-<!--{% endblock %}-->
-
-<!--{% block nav %}{% endblock %}-->
-
-
-<!--</body>-->
-<!--</html>-->
-
-{#
-Base page variables:
--- page_lang | default: 'en'
--- page_head_title_author | default: 'Barak Pinchovski'
--- page_head_title | default: 'Flask skeleton project'
-#}
-
-{#
-Base page blocks:
-- head
--- page_head
--- page_head_meta
---- page_head_meta_extra
--- page_head_css
-
-- body
--- page_body_content
---- page_body_header
----- page_body_header_content
------ page_body_header_content__main_menu
------- page_body_header_content__main_menu_content
-------- page_body_header_content__main_menu_content_links
---- page_body_main
----- page_body_main_content
---- page_body_footer
----- page_body_footer_content
--- page_body_js
- #}
 <!DOCTYPE html>
- <html lang="{{ page_lang|default("en", true) }}">
+ <html lang="{{ page_lang|default( 'en', true) }}">
     <head>
     {% block page_head %}
         {# Title #}
@@ -79,16 +31,19 @@ Base page blocks:
 
             {# Header #}
             {% block page_body_header %}
-                <header class="page-header">
+                {% include 'header.html' %}
+                    <header class="header">
+
                     {% block page_body_header_content %}
 
                         {# Main Menu #}
                         {% block page_body_header_content__main_menu %}
-                            <nav class="main-menu">
+<!--                            <nav class="main-menu">-->
+                            <nav class="navbar">
                                 {% block page_body_header_content__main_menu_content %}
                                     <ul>
                                         {% block page_body_header_content__main_menu_content_links %}
-                                            {% include 'header.html' %}
+<!--                                            {% include 'header.html' %}-->
                                         {% endblock %}
                                     </ul>
                                 {% endblock %}
@@ -118,7 +73,6 @@ Base page blocks:
         {% endblock %}
 
         {# JS #}
-        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
         {% block page_body_js %}{% endblock %}
     </body>
 </html>

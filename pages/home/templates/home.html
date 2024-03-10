@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
-{% block title %}Home{% endblock %}
 
-{% block main %}
+    {% block page_head %}
+    <title> Home</title>
+     {{ super() }}
+        {% block page_head_css %}
+            <link rel="stylesheet" href="{{ url_for('home.static', filename='home.css') }}"/>
+        {% endblock %}
+    {% endblock %}
+
+<!--{% block title %}Home{% endblock %}-->
+
+{% block page_body_main_content %}
 <!--):-->
-<link rel="stylesheet" href="/pages/home/static/home.css">
+<!--<link rel="stylesheet" href="/pages/home/static/home.css">-->
 <!--):-->
     <div >
         <ul class="menu">
