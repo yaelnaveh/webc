@@ -4,11 +4,11 @@
      {{ super() }}
         {% block page_head_css %}
             <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}"/>
+            <link rel="stylesheet" href="{{ url_for('travelSchedule.static', filename='travelSchedule.css') }}"/>
         {% endblock %}
     {% endblock %}
 
 
-<!--{% block title %}Travel Schedule{% endblock %}-->
 {% block page_body_main_content %}
 
 <section class="bodyy">
@@ -22,7 +22,7 @@
     <br>
 
     <div class= "input-control error" id="systemMessageSchdlPage" unchosen-error="Please choose a ride first"></div> <!--- figure out how to display it!! --->
-<table class="table travelScheduleTable" id="travelScheduleTable">
+<table action="/register_for_ride" class="table travelScheduleTable" id="travelScheduleTable"> <!---i think we can remove action="/register_for_ride" --->
     <thead>
         <tr>
             <th>Select</th>
@@ -36,150 +36,35 @@
         </tr>
     </thead>
     <tbody id="tbody">
+        {% for record in travels %}
         <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td data-label="Date">21.02.24</td>
-            <td data-label="Time">12:00</td>
-            <td data-label="Source">Nahariya</td>
-            <td data-label="Destination">Beer Sheva</td>
-            <td data-label="Max">4</td>
-            <td data-label="Driver">Yael Naveh</td>
-            <td data-label="Price">50</td>
+            <td><input type="radio" name="selectRow" value="{{ record._id }}"></td>
+            <td>{{ record.Date }}</td>
+            <td>{{ record.Time }}</td>
+            <td>{{ record.Source }}</td>
+            <td>{{ record.Destination }}</td>
+            <td>{{ record.Max }}</td>
+            <td>{{ record.Driver }}</td>
+            <td>{{ record.Price }}</td>
         </tr>
-            <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>22.02.24</td>
-            <td>10:00</td>
-            <td>Nahariya</td>
-            <td>Haifa</td>
-            <td>4</td>
-            <td>Esti Leykind</td>
-            <td>40</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>22.02.24</td>
-            <td>14:00</td>
-            <td>Nahariya</td>
-            <td>Beer Sheva</td>
-            <td>4</td>
-            <td>Ofir Talmi</td>
-            <td>50</td>
-        </tr>
-            <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>24.02.24</td>
-            <td>20:00</td>
-            <td>Tel Aviv</td>
-            <td>Beer Sheva</td>
-            <td>4</td>
-            <td>Oren Maor</td>
-            <td>20</td>
-        </tr>
-      <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>25.02.24</td>
-            <td>15:00</td>
-            <td>Tel Aviv</td>
-            <td>Jerusalem</td>
-            <td>4</td>
-            <td>Ori Lanir</td>
-            <td>35</td>
-        </tr>
-          <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>25.02.24</td>
-            <td>15:00</td>
-            <td>Beer Sheva</td>
-            <td>Jerusalem</td>
-            <td>4</td>
-            <td>Ohad Amir</td>
-            <td>35</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td data-label="Date">21.02.24</td>
-            <td data-label="Time">12:00</td>
-            <td data-label="Source">Nahariya</td>
-            <td data-label="Destination">Beer Sheva</td>
-            <td data-label="Max">4</td>
-            <td data-label="Driver">Yael Naveh</td>
-            <td data-label="Price">50</td>
-        </tr>
-            <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>22.02.24</td>
-            <td>10:00</td>
-            <td>Nahariya</td>
-            <td>Haifa</td>
-            <td>4</td>
-            <td>Esti Leykind</td>
-            <td>40</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>22.02.24</td>
-            <td>14:00</td>
-            <td>Nahariya</td>
-            <td>Beer Sheva</td>
-            <td>4</td>
-            <td>Ofir Talmi</td>
-            <td>50</td>
-        </tr>
-            <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>24.02.24</td>
-            <td>20:00</td>
-            <td>Tel Aviv</td>
-            <td>Beer Sheva</td>
-            <td>4</td>
-            <td>Oren Maor</td>
-            <td>20</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>25.02.24</td>
-            <td>15:00</td>
-            <td>Tel Aviv</td>
-            <td>Jerusalem</td>
-            <td>4</td>
-            <td>Ori Lanir</td>
-            <td>35</td>
-        </tr>
-          <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td>25.02.24</td>
-            <td>15:00</td>
-            <td>Beer Sheva</td>
-            <td>Jerusalem</td>
-            <td>4</td>
-            <td>Ohad Amir</td>
-            <td>35</td>
-        </tr>
-
-        <tr>
-            <td><input type="radio" name="selectRow"></td>
-            <td data-label="Date">21.02.24</td>
-            <td data-label="Time">12:00</td>
-            <td data-label="Source">Nahariya</td>
-            <td data-label="Destination">Beer Sheva</td>
-            <td data-label="Max">4</td>
-            <td data-label="Driver">Yael Naveh</td>
-            <td data-label="Price">50</td>
-
+        {% endfor %}
     </tbody>
+
 </table>
 </section>
-
- <div class="container">
+<div class="container">
      <button type="submit" class="submit" name="selectRowButton" id="registerButton" onclick="registerForRide()">Register</button>
         <div class="popup" id="popup">
-            <img src="../../static/tick.png">
+            <img src="/static/media/img/tick.png">
             <h2>Thank You!</h2>
             <p>You registered successfully for the ride</p>
-            <button type="button" onclick="closePopup()">OK</button>
+<!--            <button type="button" onclick="closePopup()">OK</button>-->
+            <button type="button" onclick="closePopupAndRedirect()">OK</button>
         </div>
  </div>
 
 {% endblock %}
-{% block page_body_js %}<script src="{{url_for('travelSchedule.static', filename='travelSchedule.js') }}"></script>{% endblock %}
+
+{% block page_body_js %}
+<script src="{{url_for('travelSchedule.static', filename='travelSchedule.js') }}"></script>
+{%endblock%}

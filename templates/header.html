@@ -6,17 +6,24 @@
             <img src="/static/media/img/icons8-menu-50%20(1).png">
         </label>
         <ul id="navbar">
+            {% if session.get('logged_in') %}
+            <script>
+            console.log("User is logged in navvvvv.");
+            </script>
             <li><a href="/home">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/travelSchedule">Travel Schedule</a></li>
             <li><a href="/travelHistory">My History</a></li>
             <li><a href="/newTravel">New Travel</a></li>
+            {% else %}
+            <li><a href="/about">About</a></li>
+            {% endif %}
         </ul>
     </nav>
 
     <div id="nav-button">
         {% if session.get('logged_in') %}
-            <button class="btn" id="logOutBtn"><a href="/entry">Logout</a> </button>
+            <button class="btn" id="logOutBtn"><a href="/logout">Logout</a> </button>
         <script>
             console.log("User is logged in.");
         </script>

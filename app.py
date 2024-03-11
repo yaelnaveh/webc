@@ -1,7 +1,4 @@
-# from flask import Flask
-# app = Flask(__name__)
-# app.secret_key = '123'
-########################################
+
 from flask import Flask
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
@@ -9,68 +6,30 @@ from pymongo.server_api import ServerApi
 ###### App setup
 app = Flask(__name__)
 app.config.from_pyfile('settings.py')
-#######################################
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
-#
-# @app.route('/home')
-# def home_page():
-#     return render_template('home.html')
-#
-#
-# @app.route('/login', methods=['GET', 'POST'])
-# def login_page():
-#     if request.method == 'POST':
-#         email = request.form['email']
-#         password = request.form['password']
-#         #Do check with DB
-#         # if username == 'admin' and password == '<PASSWORD>':
-#         #     session['username'] = 'admin'
-#         #     return redirect(url_for('home_page'))
-#         session['email'] = email
-#         session['logged_in'] = True
-#         return render_template('home.html', email=email)
-#     return render_template('login.html')
-#
-# @app.route('/about')
-# def about_page():
-#     return render_template('about.html')
-#
-# @app.route('/travelSchedule', methods=['GET', 'POST'])
-# def travelSch_page():
-#     return render_template('travelSchedule.html')
-#
-# @app.route('/travelHistory', methods=['GET', 'POST'])
-# def travelHist_page():
-#     return render_template('travelHistory.html')
-#
-# @app.route('/newTravel', methods=['GET', 'POST'])
-# def newTravel_page():
-#     return render_template('newTrip.html')
-#
-# @app.route('/signup', methods=['GET', 'POST'])
-# def signup_page():
-#     return render_template('signup.html')
-#
-# @app.route('/logout', methods=['GET'])
-# def logout_func():
-#     session['logged_in'] = False
-#     session['email'] = ''
-#     return redirect(url_for('login_page'))
-#
-# @app.route('/')
-# def entry_page():
-#     return render_template('first.html')
-#
 
-uri = "mongodb+srv://esti:esti@cluster0.zq1bzx1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
+# uri = "mongodb+srv://esti:esti@cluster0.zq1bzx1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri ="mongodb+srv://yaelnaveh:yaelnaveh@cluster0.xvmrlkv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 # Create a new client and connect to the server
 cluster = MongoClient(uri, server_api=ServerApi('1'))
 database = cluster['DrivingTogether']
 users_col = database['users']
 travels_col = database['travels']
+# my_travels_col = database['my_travels']
+tremp_col = database['tremp']
+
+#insert_one
+# my_travel={
+#             'Date': '2/2/2024',
+#             'Time': '17:00',
+#             'Source': 'tlv',
+#             'Destination': 'city_destination',
+#             'Max': '4',
+#             'Price': '34',
+#             'Driver': 'Me'
+#         }
+# my_travels_col.insert_one(my_travel)
+
 
 # #insert_many
 # travels_list = [
@@ -98,6 +57,21 @@ travels_col = database['travels']
 # ]
 # travels_col.insert_many(travels_list)
 # users_col.insert_many(users_list)
+
+# delete many
+# tremp_col.delete_many({'Source': 'home'})
+# travels_col.delete_many({'Max': '4'})
+# travels_col.delete_many({'Price': 'price'})
+# travels_col.delete_many({'Driver': 'bdika2'})
+# travels_col.delete_many({'Driver': ''})
+# travels_col.delete_many({'Source': 'None'})
+# travels_col.delete_many({'Source': 'check1'})
+# users_col.delete_many({'name': 'Ofir Talmi'})
+# users_col.delete_many({'name': 'Oren Maor'})
+# users_col.delete_many({'name': 'Ohad Amir'})
+# users_col.delete_many({'name': 'Ori Lanir'})
+
+
 
 ###Pages
 #about
@@ -135,3 +109,4 @@ app.register_blueprint(travelHistory)
 #travelSchedule
 from pages.travelSchedule.travelSchedule import travelSchedule
 app.register_blueprint(travelSchedule)
+

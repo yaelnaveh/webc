@@ -12,6 +12,7 @@
     color: #03453f;
     visibility: hidden;
     transition: transform 0.4s, top 0.4s;
+    /*z-index: 1001; !* Adjust z-index value *!*/
 }
 
 .open-popup{

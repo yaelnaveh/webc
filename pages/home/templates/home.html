@@ -8,12 +8,15 @@
         {% endblock %}
     {% endblock %}
 
-<!--{% block title %}Home{% endblock %}-->
 
 {% block page_body_main_content %}
-<!--):-->
-<!--<link rel="stylesheet" href="/pages/home/static/home.css">-->
-<!--):-->
+<br>
+<br>
+{% if session.get('logged_in') %}
+    <h2>Hello {{session.get('username', 'Unknown') }},</h2>
+{% else %}
+    <h3>Email: ***</h3>
+{% endif %}
     <div >
         <ul class="menu">
             <li class="box"><a href="/travelSchedule">Travel schedule</a></li>
@@ -21,13 +24,5 @@
             <li class="box"><a href="/newTravel">Create a new trip</a></li>
         </ul>
     </div>
-
-
-{% if session.get('logged_in') %}
-    <h3>Email: {{session.get('email')}}</h3>
-{% else %}
-    <h3>Email: ***</h3>
-{% endif %}
-
 
 {% endblock %}

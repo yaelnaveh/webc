@@ -8,14 +8,16 @@ login = Blueprint(
     static_url_path='/login',
     template_folder='templates')
 
-# @login.route('/login')
-# def index():
-#     return render_template('login.html')
+# def setup_session(email, username):
+#     session['email'] = email
+#     session['logged_in'] = True
+#     session['username'] = username
 @login.route('/login', methods= ['GET', 'POST'])
 def index():
     error_message = None  # Initialize error_message to None
-    print(f'The method is: {request.method}')
+    print(f' login The method is: {request.method}')
     if request.method == 'POST':
+        print(f' login The method is 1111: {request.method}')
         email = request.form['email']
         password = request.form['password']
         #Do check with DB
@@ -26,6 +28,8 @@ def index():
             # If a matching user is found, set session variables and redirect to home
             session['email'] = email
             session['logged_in'] = True
+            session['username'] = user['first_name']  # Assuming 'first_name' is the field containing the user's name
+            # setup_session(email, user['first_name'])
             return render_template('home.html', email=email, user=user)
         else:
             # If no matching user is found, show an error message
@@ -35,16 +39,12 @@ def index():
         # Render the login page for GET requests
     return render_template('login.html')
 
-    #     session['email'] = email
-    #     session['logged_in'] = True
-    #     return render_template('home.html', email=email)
-    # return render_template('login.html')
-
 
 @login.route('/logout', methods=['GET'])
 def logout_func():
     session['logged_in'] = False
     session['username'] = ''
     session['email'] = ''
-    # return redirect(url_for('login_func'))
     return render_template('first.html')
+
+

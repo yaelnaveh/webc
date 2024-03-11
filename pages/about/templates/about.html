@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}About{% endblock %}
-{% block main %}
+    {% block page_head %}
+        {{super()}}
+        <title> about</title>
+    {% endblock %}
 
+    {% block page_body_main_content %}
 <section class="bodyy">
     <h1> Driving Together</h1>
     <br>

@@ -98,12 +98,67 @@ systemMessageSchdlPage.classList.add("open-error");
     }, 4000);
 }
 
+// function registerForRide() {
+//     console.log("registerForRide:");
+//
+//     let selectedOption = document.querySelector('input[name="selectRow"]:checked');
+//     if (selectedOption) {
+//         selectedOption.checked = false;
+//         openPopup()
+//     } else {
+//         displayError()
+//     }
+// }
+
+
+
+// Define a global variable to store the selected trip data
+let selectedTripData;
+
+// Function to register for a ride
 function registerForRide() {
+    console.log("registerForRide:");
+
+    // Get the selected option
     let selectedOption = document.querySelector('input[name="selectRow"]:checked');
     if (selectedOption) {
-        selectedOption.checked = false;
-        openPopup()
+        // Store the selected trip data
+        selectedTripData = {
+            _id: selectedOption.value,
+            date: selectedOption.parentNode.nextElementSibling.innerText,
+            time: selectedOption.parentNode.nextElementSibling.nextElementSibling.innerText,
+            source: selectedOption.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.innerText,
+            destination: selectedOption.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText,
+            max: selectedOption.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText,
+            driver: selectedOption.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText,
+            price: selectedOption.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText
+        };
+
+        // Open the popup
+        openPopup();
     } else {
-        displayError()
+        displayError();
     }
+}
+
+// Function to close the popup and redirect to travel history page
+function closePopupAndRedirect() {
+    const selectedTripId = selectedTripData._id;
+    console.log("id:"+selectedTripId);
+
+    // Insert the selected trip data into the ride table collection
+    fetch('/register_for_ride/' + selectedTripId)
+        .then(response => {
+            if (response.ok) {
+                // Close the popup
+                closePopup();
+
+                // Redirect to the travel history page
+                ///need to go to /travelHistory/<userEmail>!!!!!!!
+                window.location.href = '/travelHistory';
+            } else {
+                console.error('Failed to register for ride');
+            }
+        })
+        .catch(error => console.error('Error registering for ride:', error));
 }

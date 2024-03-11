@@ -13,7 +13,7 @@
 <div class="form container">
     <div class="title">New Trip</div>
 
-    <form id="tripForm" action="/static">
+    <form id="tripForm" action="/newTravel" method="POST"  >
 <!--        <div class="input-row">-->
             <div class="input-box">
                 <label>Source</label>
@@ -39,7 +39,7 @@
                 <label>Destination</label>
                 <div class="location-inputs">
                     <div class="input-control">
-                        <input id="cityDestination" name="citySDestination" type="text" placeholder="City">
+                        <input id="cityDestination" name="cityDestination" type="text" placeholder="City">
                         <div class="error"></div>
                     </div>
                     <div class="input-control">
@@ -106,6 +106,14 @@
 </div>
 {% endblock %}
 
-{% block page_body_js %}
-    <script type="module" src="{{ url_for('newTravel.static', filename='newTrip.js') }}"></script>
-{% endblock %}
+<script>
+    document.getElementById("tripForm").addEventListener("submit", function(event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        // Change the form's method to POST
+        this.setAttribute("method", "POST");
+
+        // Submit the form
+        this.submit();
+    });
+</script>
