@@ -45,10 +45,10 @@
                     <td>{{ record.Destination }}</td>
                     <td>{{ record.Max }}</td>
                     <td>
-                        {% if record.User_name %}
-                            {{ record.Driver }}
-                        {% else %}
+                        {% if record.Driver_email == session.email %}
                             Me
+                        {% else %}
+                            {{ record.Driver }}
                         {% endif %}
                     </td>
                     <td>{{ record.Price }}</td>

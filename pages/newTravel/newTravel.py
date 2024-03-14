@@ -1,4 +1,3 @@
-
 from flask import Flask, redirect, url_for, render_template, request, session, Blueprint
 from app import travels_col, tremp_col
 
@@ -9,10 +8,12 @@ newTravel = Blueprint(
     static_url_path='/newTravel',
     template_folder='templates')
 
+
 @newTravel.route('/newTravel', methods=['GET'])
 def show_new_trip_form():
     print(f'new travel')
     return render_template('newTrip.html')
+
 
 @newTravel.route('/newTravel', methods=['POST'])
 def add_new_trip():
@@ -29,6 +30,9 @@ def add_new_trip():
         price = request.form.get('price')
         driver_name = session.get('username', 'Unknown')  # Default to 'Unknown' if username is not found in the session
         driver_email = session.get('email', 'Unknown')
+        User_email = session.get('email', 'Unknown')
+        id = driver_name + '_' + str(date_trip) + '_' + str(time_trip)
+        print(f' id: {id}')
         # insert trip data into database
         travel = {
             'Source': city_source,
@@ -37,10 +41,12 @@ def add_new_trip():
             'Time': time_trip,
             'Max': num_of_plc,
             'Price': price,
-            'Driver': driver_name
+            'Driver': driver_name,
+            'DriverEmail': driver_email,
+            'id': id
         }
         travels_col.insert_one(travel)
-        my_travel={
+        my_travel = {
             'Date': date_trip,
             'Time': time_trip,
             'Source': city_source,
@@ -48,15 +54,17 @@ def add_new_trip():
             'Max': num_of_plc,
             'Price': price,
             'Driver': driver_name,
-            'User_email': driver_email
-
+            'Driver_email': driver_email,
+            'User_email': User_email,
+            'id': id
 
         }
         tremp_col.insert_one(my_travel)
         # Redirect to a different page after adding the trip
         return redirect(url_for('newTravel.trip_added'))
 
+
 @newTravel.route('/trip_added')
 def trip_added():
     return redirect(url_for('travelSchedule.index'))
-
+    # return render_template('newTrip.html')

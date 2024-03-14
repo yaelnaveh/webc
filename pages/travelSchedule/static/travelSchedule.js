@@ -91,13 +91,20 @@ function closePopup(){
 popup.classList.remove("open-popup");
 }
 
-function displayError(){
-systemMessageSchdlPage.classList.add("open-error");
+// function displayError(message){
+// systemMessageSchdlPage.classList.add("open-error");
+//     setTimeout(function () {
+//         systemMessageSchdlPage.classList.remove("open-error");
+//     }, 4000);
+// }
+function displayError(message) {
+    let systemMessageSchdlPage = document.getElementById("systemMessageSchdlPage");
+    systemMessageSchdlPage.textContent = message;
+    systemMessageSchdlPage.classList.add("open-error");
     setTimeout(function () {
         systemMessageSchdlPage.classList.remove("open-error");
     }, 4000);
 }
-
 // function registerForRide() {
 //     console.log("registerForRide:");
 //
@@ -118,10 +125,12 @@ let selectedTripData;
 // Function to register for a ride
 function registerForRide() {
     console.log("registerForRide:");
-
+    // console.log("OUR CURRENT USER" + {{currUserEmail}} );
+    let check=true;
     // Get the selected option
     let selectedOption = document.querySelector('input[name="selectRow"]:checked');
     if (selectedOption) {
+
         // Store the selected trip data
         selectedTripData = {
             _id: selectedOption.value,
@@ -131,20 +140,61 @@ function registerForRide() {
             destination: selectedOption.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText,
             max: selectedOption.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText,
             driver: selectedOption.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText,
-            price: selectedOption.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText
+            price: selectedOption.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText,
+            id: ""
+
         };
 
-        // Open the popup
-        openPopup();
+        selectedTripData.id = `${selectedTripData.driver}_${selectedTripData.date.toString()}_${selectedTripData.time.toString()}`
+
+        fetch('/get_ride_session/' + selectedTripData.id)
+            .then(response => response.json())
+            .then(data => {
+                if (data['email_user'] != data['email_driver']) {
+                    console.log(data['email_user'])
+                    console.log(data['emailDriver'])
+                    // Open the popup
+                    openPopup();
+                    console.log('popup data[email_user] != data[emailDriver]')
+                } else {
+                    displayError(" You can't register to your own ride!");
+                    check= false;
+                    console.log('1'+check)
+                }
+                console.log('2'+check)
+                // Use the fetched data
+                console.log('USER:' + data['email_user'] + 'DRIVER:' + data['email_driver']); // Output: example@example.com
+            });
+        console.log('3'+check)
+        if(check) {
+            fetch('/is_one_ride/' + selectedTripData.id)
+                .then(response => response.json())
+                .then(data => {
+                    if (!data['exists']) {
+                        // Open the popup
+                        openPopup();
+                        console.log('popup !data[exists]')
+                    } else {
+
+                        displayError(" You can't register to the same ride twice!");
+
+                    }
+                    // Use the fetched data
+
+                });
+        }
+
+
     } else {
-        displayError();
+        displayError("Please choose a ride first");
+
     }
 }
 
 // Function to close the popup and redirect to travel history page
 function closePopupAndRedirect() {
-    const selectedTripId = selectedTripData._id;
-    console.log("id:"+selectedTripId);
+    const selectedTripId = selectedTripData.id;
+    console.log("id:" + selectedTripId);
 
     // Insert the selected trip data into the ride table collection
     fetch('/register_for_ride/' + selectedTripId)

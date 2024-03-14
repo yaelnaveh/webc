@@ -21,8 +21,12 @@
     <th><input type="text" class="search-input destinationSearch"  placeholder="Search by Destination..."></th>
     <br>
 
-    <div class= "input-control error" id="systemMessageSchdlPage" unchosen-error="Please choose a ride first"></div> <!--- figure out how to display it!! --->
+    <div class= "input-control error" id="systemMessageSchdlPage" ></div> <!--- figure out how to display it!! --->
 <table action="/register_for_ride" class="table travelScheduleTable" id="travelScheduleTable"> <!---i think we can remove action="/register_for_ride" --->
+     {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+     {% endif %}
+
     <thead>
         <tr>
             <th>Select</th>
@@ -58,7 +62,6 @@
             <img src="/static/media/img/tick.png">
             <h2>Thank You!</h2>
             <p>You registered successfully for the ride</p>
-<!--            <button type="button" onclick="closePopup()">OK</button>-->
             <button type="button" onclick="closePopupAndRedirect()">OK</button>
         </div>
  </div>

@@ -100,20 +100,24 @@
                 </label>
         </div>
         <div class="button">
-                <input type="submit" class="submit" id="submitTrip" value="Register">
+                <input type="submit" class="submit" id="submitTrip"  value="Create">
         </div>
     </form>
 </div>
 {% endblock %}
+{% block page_body_js %}
+<script type="module" src="{{url_for('newTravel.static',filename='newTrip.js')}}"></script>
+{% endblock %}
 
-<script>
-    document.getElementById("tripForm").addEventListener("submit", function(event) {
-        event.preventDefault();  // Prevent the default form submission
 
-        // Change the form's method to POST
-        this.setAttribute("method", "POST");
+<!--<script>-->
+<!--    document.getElementById("tripForm").addEventListener("submit", function(event) {-->
+<!--        event.preventDefault();  // Prevent the default form submission-->
 
-        // Submit the form
-        this.submit();
-    });
-</script>
+<!--        // Change the form's method to POST-->
+<!--        this.setAttribute("method", "POST");-->
+
+<!--        // Submit the form-->
+<!--        this.submit();-->
+<!--    });-->
+<!--</script>-->

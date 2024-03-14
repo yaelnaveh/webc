@@ -19,16 +19,17 @@ travels_col = database['travels']
 tremp_col = database['tremp']
 
 #insert_one
-# my_travel={
+# travel={
 #             'Date': '2/2/2024',
 #             'Time': '17:00',
 #             'Source': 'tlv',
 #             'Destination': 'city_destination',
-#             'Max': '4',
+#             'Max': '0',
 #             'Price': '34',
-#             'Driver': 'Me'
+#             'Driver': 'Me',
+#             'id': 'Me17:002/2/2024'
 #         }
-# my_travels_col.insert_one(my_travel)
+# travels_col.insert_one(travel)
 
 
 # #insert_many

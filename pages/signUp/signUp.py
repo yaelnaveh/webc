@@ -2,6 +2,8 @@ from flask import Flask, redirect, url_for, render_template, request, session, B
 from app import users_col
 
 
+
+
 signUp = Blueprint(
     'signUp',
     __name__,
@@ -12,15 +14,16 @@ signUp = Blueprint(
 
 @signUp.route('/signUp', methods=['GET', 'POST'])
 def index():
+    print(f' in index.signUp.py ')
     if request.method == 'POST':
-
+        print(f' in index.signUp.py post ')
         # Retrieve form data
         first_name = request.form['firstName']
         last_name = request.form['lastName']
         phone = request.form['phone']
         email = request.form['email']
         password = request.form['password']
-        bd= request.form['bd']
+        bd = request.form['bd']
         gender = request.form['Gender']
         city = request.form['city']
         # street = request.form['street']
@@ -54,7 +57,6 @@ def index():
         session['email'] = email
         session['logged_in'] = True
         session['username'] = user['first_name']  # Assuming 'first_name' is the field containing the user's name
-
         return render_template('home.html')
 
     return render_template('signUp.html')

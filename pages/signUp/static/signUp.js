@@ -1,5 +1,5 @@
  console.log('hiiiii1')
- import {setError, setSuccess, doesNotContainNumbers, containsOnlyEnglishLetters, checkCity, checkStreet, checkNumber} from '../../static/js/common.js';
+ import {setError, setSuccess, doesNotContainNumbers, containsOnlyEnglishLetters, checkCity, checkStreet} from '../../static/js/common.js';
  const customerForm=document.querySelector('#customerForm')
  const firstName=document.querySelector('#firstName')
  const lastName=document.querySelector('#lastName')
@@ -29,6 +29,11 @@
 
         }
  }*/
+
+
+
+
+
  document.addEventListener('DOMContentLoaded', function() {
     // Add event listener to city input
     city.addEventListener('input', function() {
@@ -46,10 +51,18 @@
         }
     })
 })
- customerForm.addEventListener('submit',e=> {
-     e.preventDefault()
-     validateInputs();
- })
+ customerForm.addEventListener('submit', e => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    // Validate inputs
+    let isValid = true;
+    isValid= validateInputs();
+    console.log('isValid=' + isValid)
+    // If all inputs are valid, submit the form
+    if (isValid) {
+        customerForm.submit();
+    }
+});
 
  const isValidEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -111,10 +124,13 @@ const validateInputs=()=> {
     // firstName
     if (firstNameValue === '') {
         setError(firstName, 'first name is required!')
+        return false;
     }else if(!doesNotContainNumbers(firstNameValue)||firstNameValue.length<2){
         setError(firstName, 'Enter a valid first name!')
+        return false;
     }else if(!containsOnlyEnglishLetters(firstNameValue)){
         setError(firstName, 'Enter a first name in English only')
+        return false;
     }else{
         setSuccess(firstName);
     }
@@ -122,10 +138,13 @@ const validateInputs=()=> {
     // lastName
     if(lastNameValue===''){
         setError(lastName, 'last name is required!')
+        return false;
     }else if(!doesNotContainNumbers(lastNameValue)||lastNameValue.length<2){
         setError(lastName, 'Enter a valid last name!')
+        return false;
     }else if(!containsOnlyEnglishLetters(lastNameValue)){
         setError(lastName, 'Enter a last name in English only')
+        return false;
     }else{
         setSuccess(lastName);
     }
@@ -133,12 +152,16 @@ const validateInputs=()=> {
     // phone
     if(phoneValue === '') {
         setError(phone, 'phone number is required');
+        return false;
     } else if (phoneValue.length !== 10) {
         setError(phone, 'Phone number must be 10 digits');
+        return false;
     }else if (!isOnlyNum(phoneValue)) {
         setError(phone, 'Phone number must apply digits only');
+        return false;
     }else if (phoneValue.charAt(0)!=='0') {
         setError(phone, 'A phone number must start with the digit 0');
+        return false;
     } else {
         setSuccess(phone);
     }
@@ -146,8 +169,10 @@ const validateInputs=()=> {
     // email
     if(emailValue === '') {
         setError(email, 'Email is required');
+        return false;
     } else if (!isValidEmail(emailValue)) {
         setError(email, 'Provide a valid email address');
+        return false;
     } else {
         setSuccess(email);
     }
@@ -155,8 +180,10 @@ const validateInputs=()=> {
     // password
     if(passwordValue === '') {
         setError(password, 'Password is required');
+        return false;
     } else if (!isStrongPassword(passwordValue)) {
         // setError(password, 'Password must be 8-14 character.')
+
     } else {
         setSuccess(password);
     }
@@ -164,22 +191,37 @@ const validateInputs=()=> {
     // password2
     if(password2Value === '') {
         setError(password2, 'Please confirm your password');
+        return false;
     } else if (password2Value !== passwordValue) {
         setError(password2, "Passwords doesn't match");
+        return false;
     } else {
         setSuccess(password2);
     }
+    console.log('before city')
 
     // address
     // city
-    checkCity(cityValue, city);
+    if(!checkCity(cityValue, city)) {
+        console.log('if(!checkCity(cityValue, city))')
+        return false;
+    }
     // street
-    checkStreet(streetValue, street);
+    if(!checkStreet(streetValue, street)) {
+        console.log('if(!checkStreet(streetValue, street))')
+        return false;
+    }
     // number
-    checkNumber(numberValue,number);
-
+    // if(!checkNumber(numberValue,number)) {
+    //     console.log(' if(!checkNumber(numberValue,number))')
+    //     return false;
+    // }
+    console.log('trueeeee')
+    return true;
  }
 
 
-
-
+// function moveToHome() {
+//   // Redirect to '/home'
+//   window.location.href = '/home';
+// }

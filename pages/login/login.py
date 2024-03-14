@@ -1,5 +1,6 @@
-from flask import Flask, redirect, url_for, render_template, request, session, Blueprint
+from flask import Flask, redirect, url_for, render_template, request, session, Blueprint, jsonify
 from app import users_col
+global currUserEmail
 
 login = Blueprint(
     'login',
@@ -27,6 +28,7 @@ def index():
         if user:
             # If a matching user is found, set session variables and redirect to home
             session['email'] = email
+            currUserEmail = email
             session['logged_in'] = True
             session['username'] = user['first_name']  # Assuming 'first_name' is the field containing the user's name
             # setup_session(email, user['first_name'])
@@ -48,3 +50,11 @@ def logout_func():
     return render_template('first.html')
 
 
+@login.route('/get_data')
+def get_data():
+    # This route returns the data in JSON format
+    data = {
+        'email': str(session['email'])
+        # 'user': 'John Doe'
+    }
+    return jsonify(data)

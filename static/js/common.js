@@ -36,10 +36,13 @@ export {containsOnlyEnglishLetters};
 const checkCity=(cityValue, city)=>{
    if(!doesNotContainNumbers(cityValue)||cityValue.length===1){
         setError(city, 'Enter a valid city!')
+       return false;
     }else if(!containsOnlyEnglishLetters(cityValue)){
         setError(city, 'Enter a city in English only')
+       return false;
     }else{
         setSuccess(city);
+        return true;
     }
 }
 export {checkCity}
@@ -47,21 +50,26 @@ export {checkCity}
  const checkStreet=(streetValue, street) =>{
    if(!doesNotContainNumbers(streetValue)||streetValue.length===1){
         setError(street, 'Enter a valid street!')
+       return false;
     }else if(!containsOnlyEnglishLetters(streetValue)){
         setError(street, 'Enter a street in English only')
+       return false;
     }else{
         setSuccess(street);
+        return true;
     }
 }
 export {checkStreet}
 
- const checkNumber=(numberValue,number)=> {
-    if(numberValue==='') {
-        setSuccess(number);
-    }else if(numberValue<1){
-        setError(number, 'Enter a valid number!');
-    }else{
-        setSuccess(number);
-    }
-}
-export {checkNumber}
+//  const checkNumber=(numberValue,number)=> {
+//     if(numberValue==='') {
+//         setSuccess(number);
+//     }else if(numberValue<1){
+//         setError(number, 'Enter a valid number!');
+//         return false;
+//     }else{
+//         setSuccess(number);
+//         return true;
+//     }
+// }
+// export {checkNumber}
