@@ -80,9 +80,14 @@ def get_ride_session(id_ride):
 
 @travelSchedule.route('/is_one_ride/<id_ride>', methods=['GET'])
 def is_one_ride(id_ride):
-    selected_ride = tremp_col.find_one({'id':id_ride, 'email': session['email']})
+    print(f' id : {id_ride} ')
+    print(f" email : {session['email']} ")
+    selected_ride = tremp_col.find_one({'id':id_ride, 'User_email': session['email']})
+    print(f' selected_ride : {selected_ride} ')
     if(selected_ride):
+        print(f' selected_ride : true ')
     #    return true
     # return false
         return jsonify({'exists': True})
+    print(f' selected_ride : false ')
     return jsonify({'exists': False})

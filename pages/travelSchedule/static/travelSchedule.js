@@ -127,6 +127,7 @@ function registerForRide() {
     console.log("registerForRide:");
     // console.log("OUR CURRENT USER" + {{currUserEmail}} );
     let check=true;
+    let errorOccurred = false; // Flag to track if an error has occurred
     // Get the selected option
     let selectedOption = document.querySelector('input[name="selectRow"]:checked');
     if (selectedOption) {
@@ -147,42 +148,71 @@ function registerForRide() {
 
         selectedTripData.id = `${selectedTripData.driver}_${selectedTripData.date.toString()}_${selectedTripData.time.toString()}`
 
+        // fetch('/get_ride_session/' + selectedTripData.id)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         if (data['email_user'] != data['email_driver']) {
+        //             console.log(data['email_user'])
+        //             console.log('emailDriver '+data['email_driver'])
+        //             // Open the popup
+        //             openPopup();
+        //             // check= false;
+        //             console.log('popup data[email_user] != data[email_driver]')
+        //         } else {
+        //             displayError(" You can't register to your own ride!");
+        //             check= false;
+        //             errorOccurred = true; // Error occurred here
+        //             // console.log('1'+check)
+        //         }
+        //         if(check) {
+        //             fetch('/is_one_ride/' + selectedTripData.id)
+        //                 .then(response => response.json())
+        //                 .then(data => {
+        //                     if (!data['exists']) {
+        //                         // Open the popup
+        //                         openPopup();
+        //                         console.log('popup !data[exists]')
+        //                     } else {
+        //
+        //                         displayError(" You can't register to the same ride twice!");
+        //                          errorOccurred = true; // Error occurred here
+        //
+        //                     }
+        //                     // Use the fetched data
+        //
+        //                 });
+        //         }
+        //         // console.log('2'+check)
+        //         // Use the fetched data
+        //         console.log('USER: ' + data['email_user'] + 'DRIVER: ' + data['email_driver']); // Output: example@example.com
+        //     });
+        // console.log('3'+check)
         fetch('/get_ride_session/' + selectedTripData.id)
             .then(response => response.json())
             .then(data => {
-                if (data['email_user'] != data['email_driver']) {
+                if (data['email_user'] == data['email_driver']) {
                     console.log(data['email_user'])
-                    console.log(data['emailDriver'])
-                    // Open the popup
-                    openPopup();
-                    console.log('popup data[email_user] != data[emailDriver]')
-                } else {
+                    console.log('emailDriver '+data['email_driver'])
                     displayError(" You can't register to your own ride!");
-                    check= false;
-                    console.log('1'+check)
+
+                } else {
+                    fetch('/is_one_ride/' + selectedTripData.id)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data['exists']) {
+                                displayError(" You can't register to the same ride twice!");
+                            } else {
+                                openPopup();
+                            }
+                            // Use the fetched data
+
+                        });
+
                 }
-                console.log('2'+check)
+                // console.log('2'+check)
                 // Use the fetched data
-                console.log('USER:' + data['email_user'] + 'DRIVER:' + data['email_driver']); // Output: example@example.com
+                console.log('USER: ' + data['email_user'] + 'DRIVER: ' + data['email_driver']); // Output: example@example.com
             });
-        console.log('3'+check)
-        if(check) {
-            fetch('/is_one_ride/' + selectedTripData.id)
-                .then(response => response.json())
-                .then(data => {
-                    if (!data['exists']) {
-                        // Open the popup
-                        openPopup();
-                        console.log('popup !data[exists]')
-                    } else {
-
-                        displayError(" You can't register to the same ride twice!");
-
-                    }
-                    // Use the fetched data
-
-                });
-        }
 
 
     } else {
