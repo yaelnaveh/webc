@@ -1,45 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
+ {% block page_head %}
     <title>Show Travel</title>
-    <link rel="stylesheet" href="../../static/common.css">
-    <link rel="stylesheet" href="../../static/form.css">
-</head>
-<body>
-<section id="header">
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <img src="../icons8-menu-50%20(1).png">
-        </label>
-        <ul id="navbar">
-            <li><a href="../../home/templates/home.html">Home</a></li>
-            <li><a href="../../about/templates/about.html">About</a></li>
-            <li><a href="../../travelSchedule/templates/travelSchedule.html">Travel Schedule</a></li>
-            <li><a href="../../travelHistory/templates/travelHistory.html">My History</a></li>
-            <li><a href="../../newTravel/templates/newTrip.html">New Trip</a></li>
-        </ul>
-    </nav>
+     {{ super() }}
+        {% block page_head_css %}
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}"/>
+        {% endblock %}
+    {% endblock %}
 
-    <div id="nav-button">
-        <button class="btn" id="logonBtn"><a href="../../login/templates/login.html">Sign In</a> </button>
-        <button class="btn" id="signUpBtn"><a href="../../signUp/templates/signUp.html">Sign Up</a> </button>
-        <button class="btn" id="logOutBtn"><a href="../../../../Flask%20Skeleton%20Project/pages/entry/templates/first.html">Logout</a> </button>
-    </div>
 
-</section>
+{% block page_body_main_content %}
+
 <div class="form container">
     <div class="title">Travel Details</div>
-
-    <form action="#">
-<!--        <div class="input-row">-->
+    <form id="tripForm" action="/newTravel" method="POST"  >
             <div class="input-box">
                 <label>Source</label>
                 <div class="location-inputs">
-                    <input disabled type="text" placeholder="Beer Sheva" required>
-                    <input disabled type="text" placeholder="Derech Metzada" required>
-                    <input disabled type="text" placeholder="26" required>
+                    <div class="input-control">
+                        <input id="citySource" name="citySource" type="text" disabled placeholder="{{details.Source}}">
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="streetSource" name="streetSource" type="text" placeholder="Street" disabled>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="numberSource" name="numberSource" type="number" placeholder="No." disabled>
+                        <div class="error"></div>
+                    </div>
                 </div>
 
             </div>
@@ -48,59 +36,69 @@
             <div class="input-box">
                 <label>Destination</label>
                 <div class="location-inputs">
-                    <input disabled type="text" placeholder="Tel Aviv" required>
-                    <input disabled type="text" placeholder="Rothschiled" required>
-                    <input disabled type="text" placeholder="123" required>
+                    <div class="input-control">
+                        <input id="cityDestination" name="cityDestination" type="text" disabled placeholder="{{details.Destination}}" >
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="streetDestination" name="streetDestination" type="text" placeholder="Street" disabled>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="numberDestination" name="numberDestination" type="number" placeholder="No." disabled>
+                        <div class="error"></div>
+                    </div>
                 </div>
             </div>
-<!--        </div>-->
 
         <div class="input-row">
-            <div class="input-box">
+            <div class="input-box ">
                 <label>Date</label>
-                <input disabled type="text"  placeholder="12.02.24"  required>
+                <div class="input-control">
+                    <input id="dateTrip" name="dateTrip" type="text" disabled placeholder="{{details.Date}}"><!--required-->
+                    <div class="error"></div>
+                </div>
             </div>
 
             <div class="input-box">
                 <label>Time</label>
-                <input disabled type="text" placeholder="10:00" required>
+                <div class="input-control">
+                    <input id="timeTrip" name="timeTrip" type="text" disabled placeholder="{{details.Time}}"><!--required-->
+                    <div class="error"></div>
+                </div>
             </div>
 
             <div class="input-box">
                 <label>Number of Places</label>
-                <input disabled type="number" placeholder="2" required min="1" max="100">
+                <div class="input-control">
+                    <input id="numOfPlc" name="numOfPlc" type="number"  min="1" max="50" disabled placeholder="{{details.Max}}"><!--required-->
+                    <div class="error"></div>
+                </div>
             </div>
 
             <div class="input-box">
                 <label>Price</label>
-                <input disabled type="number" placeholder="25" required min="1" max="1000">
+                <div class="input-control">
+                    <input id="price" name="price" type="number" min="1" max="1000" disabled placeholder="{{details.Price}}"><!--required-->
+                    <div class="error"></div>
+                </div>
             </div>
         </div>
 
 
         <div class="input-box">
             <label>Comments</label>
-            <textarea disabled placeholder="I would like to bring a suitcase if possible, to ensure there is enough space in the luggage." rows="4" required></textarea>
+            <textarea placeholder="Enter your comments" rows="4" disabled ></textarea>
         </div>
 
-
-        <div class="checkbox">
-                <label >
-                    <input type="checkbox" required> I agree to the terms and conditions
-                </label>
-        </div>
-            <div class="button-container">
-            <button class="submit" type="submit"><a href="editTravel.html">Edit</a></button>
-<!--            <div class="button">-->
-<!--                    <input type="submit" class="submit" value="Edit"><a href="editTravel.html"></a>-->
-<!--            </div>-->
-                <button class="submit" type="submit">Delete</a></button>
-<!--            <div class="button">-->
-<!--                    <input type="submit" class="submit" value="Delete">-->
-<!--            </div>-->
+        <div class="button">
+                <input type="submit" class="submit" id="editTrip"  value="Duplicate" disabled>
         </div>
     </form>
 </div>
+{% endblock %}
 
-</body>
-</html>
+{% block page_body_js %}
+<script type="module" src="{{url_for('showTravel.static',filename='showTravel.js')}}"></script>
+{% endblock %}
+

@@ -13,7 +13,7 @@
     <section class="bodyy">
 
 
-        <h2>My Travel History</h2>
+        <h2>My Travels</h2>
 
     <br>
     <th><input type="date" class="search-input dateSearch" placeholder="Search by date..."></th>
@@ -59,8 +59,8 @@
 
 </table>
 </section>
-<button type="submit" class="submit" id="showTravelButton">Show Travel</button>
-
+<button type="submit" class="submit right-aligned" id="showTravelButton" onclick="checkRadio()" value="{{userName}}" >Show Travel</button>
+<!--onclick="redirectToShowTravel()-->
 {% endblock %}
 
 {% block page_body_js %}

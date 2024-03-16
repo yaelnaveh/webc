@@ -44,6 +44,10 @@
     margin-right: 20px;
  }
 
+ .error-message {
+    color: #830000 !important;
+}
+
  @media screen and (max-width: 1000px) {
      .table{
          background: none;
@@ -90,3 +94,4 @@
 
 
  }
+
