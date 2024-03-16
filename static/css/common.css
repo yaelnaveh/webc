@@ -179,39 +179,9 @@ body {
     margin-right: 25px;
 }
 
-/*.button-container{*/
-/*    display: flex;*/
-/*}*/
-
-/*.button {*/
-/*    margin-right: 10px;*/
-/*}*/
-
-
-/*.button-container.submit-link{*/
-/*    display: inline-block;*/
-/*    white-space: nowrap;*/
-/*    padding: 10px;*/
-/*    margin: 5px;*/
-/*    width: 200px;*/
-/*    background-color:#197067;*/
-/*    text-align: center;*/
-/*    border-radius: 30px;*/
-/*    font-size: 30px;*/
-/*    text-decoration: none;*/
-/*    color: white;*/
-/*}*/
-
-/*.button-container.submit-link:hover{*/
-/*    transform: scale(1.06);*/
-/*    background-color:#0a3833;*/
-/*    border-width: 5px;*/
-/*    border-color: white;*/
-/*}*/
-
-/*.button-container.submit-link:focus {*/
-/*    outline: none; !* Remove focus outline *!*/
-/*}*/
+.Hello{
+    color: #f3f3f3;
+}
 
 #registerToRide{
     visibility: hidden;
@@ -347,19 +317,6 @@ body {
     }
 }
 
-/*
-@media screen and (max-width: 768px) {
-    #navbar {
-        flex-direction: column;
-    }
-
-    #navbar li {
-        border-bottom: 1px solid #ddd;
-    }
-
-    #navbar li:last-child {
-        border-bottom: none;
-    }
+.right-aligned {
+    float: right;
 }
-*/
-

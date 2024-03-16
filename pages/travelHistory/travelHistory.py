@@ -12,6 +12,8 @@ travelHistory = Blueprint(
 def index():
     # Query to sort records by date and time first and then by source
     tremps = tremp_col.find().sort([("Date", 1), ("Time", 1), ("Source", 1)])
+    userName = session['username']
 
     print(f' travelhistory: {tremps}')
-    return render_template('travelHistory.html', tremps=tremps)
+    return render_template('travelHistory.html', tremps=tremps, userName=userName)
+

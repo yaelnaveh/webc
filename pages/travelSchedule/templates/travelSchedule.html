@@ -24,7 +24,7 @@
     <div class= "input-control error" id="systemMessageSchdlPage" ></div> <!--- figure out how to display it!! --->
 <table action="/register_for_ride" class="table travelScheduleTable" id="travelScheduleTable"> <!---i think we can remove action="/register_for_ride" --->
      {% if error_message %}
-        <p style="color: red;">{{ error_message }}</p>
+        <p class="error-message">{{ error_message }}</p>
      {% endif %}
 
     <thead>
@@ -57,7 +57,7 @@
 </table>
 </section>
 <div class="container">
-     <button type="submit" class="submit" name="selectRowButton" id="registerButton" onclick="registerForRide()">Register</button>
+     <button type="submit" class="submit right-aligned" name="selectRowButton" id="registerButton" onclick="registerForRide()">Register</button>
         <div class="popup" id="popup">
             <img src="/static/media/img/tick.png">
             <h2>Thank You!</h2>
