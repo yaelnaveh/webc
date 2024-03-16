@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from flask import Flask, redirect, url_for, render_template, request, session, Blueprint, jsonify
 from app import travels_col, tremp_col
 from flask import jsonify
@@ -35,19 +37,26 @@ def register_for_ride(id_ride):
         # if selected_ride:
         #     # Add the selected ride to the ride table
         ride_data = {
-                'Date': selected_ride['Date'],
-                'Time': selected_ride['Time'],
-                'Source': selected_ride['Source'],
-                'Destination': selected_ride['Destination'],
-                'Max': str(int(selected_ride['Max']) - 1),
-                'Price': selected_ride['Price'],
-                'Driver': selected_ride['Driver'],
-                'User_name': session.get('username'),
-                'User_last_name': session.get('last_name'),
-                'User_email': session.get('email'),
-                'Driver_email': selected_ride['DriverEmail'],
-                'id': id_ride
-            }
+            'Date': selected_ride['Date'],
+            'Time': selected_ride['Time'],
+            'Source': selected_ride['Source'],
+            'Street_Source': selected_ride['Street_Source'] if selected_ride.get('Street_Source') is not None else '',
+            'Number_Source': selected_ride['Number_Source'] if selected_ride.get('Number_Source') is not None else '',
+            'Destination': selected_ride['Destination'],
+            'Street_Destination': selected_ride['Street_Destination'] if selected_ride.get('Street_Destination') is not None else '',
+            'Number_Destination': selected_ride['Number_Destination'] if selected_ride.get('Number_Destination') is not None else '',
+            'Max': str(int(selected_ride['Max']) - 1),
+            'Price': selected_ride['Price'],
+            'Comment': selected_ride['Comment'] if selected_ride.get('Comment') is not None else '',
+            'Driver': selected_ride['Driver'],
+            'User_name': session.get('username'),
+            'User_last_name': session.get('last_name'),
+            'User_email': session.get('email'),
+            'Driver_email': selected_ride['DriverEmail'],
+            'id': id_ride
+        }
+        print('ride_data:')
+        pprint(ride_data)
         # update one
         my_query = {'id': id_ride}
         new_values = {'$set': {'Max': str(int(selected_ride['Max']) - 1)}}

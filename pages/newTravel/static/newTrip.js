@@ -85,7 +85,7 @@ const validateTripInputs = () => {
             return false;
     }
     console.log('after city validateTripInputs'+ today)
-    if (streetSourceValue && !checkStreet(streetSourceValue)){
+    if (streetSourceValue && !checkStreet(streetSourceValue, streetSource)){
         return false;
     }
     if (cityDestinationValue === '') {
@@ -94,10 +94,9 @@ const validateTripInputs = () => {
     } else if(!checkCity(cityDestinationValue, cityDestination)){
         return false;
     }
-    if (streetDestinationValue && !checkStreet(streetDestinationValue)){
+    if (streetDestinationValue && !checkStreet(streetDestinationValue, streetDestination)){
         return false;
     }
-    console.log('today='+today+',dateTripValue='+dateTripValue+'cond@@@@@@@@@@@@@@@@@2='+ toString(dateTripValue)<=toString(today));
     if((dateTripValue && dateTripValue<=today) || !dateTripValue){
         setError(dateTrip, 'Future date is required!');
         return false;
