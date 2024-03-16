@@ -28,6 +28,7 @@ def add_new_trip():
         time_trip = request.form.get('timeTrip')
         num_of_plc = request.form.get('numOfPlc')
         price = request.form.get('price')
+        comment = request.form.get('comment')
         driver_name = session.get('username', 'Unknown')  # Default to 'Unknown' if username is not found in the session
         driver_email = session.get('email', 'Unknown')
         User_email = session.get('email', 'Unknown')
@@ -36,23 +37,33 @@ def add_new_trip():
         # insert trip data into database
         travel = {
             'Source': city_source,
+            'Street_Source': street_source,
+            'Number_Source': number_source,
             'Destination': city_destination,
+            'Street_Destination': street_destination,
+            'Number_Destination': number_destination,
             'Date': date_trip,
             'Time': time_trip,
             'Max': num_of_plc,
             'Price': price,
+            'Comment': comment,
             'Driver': driver_name,
             'DriverEmail': driver_email,
             'id': id
         }
         travels_col.insert_one(travel)
         my_travel = {
+            'Source': city_source,
+            'Street_Source': street_source,
+            'Number_Source': number_source,
+            'Destination': city_destination,
+            'Street_Destination': street_destination,
+            'Number_Destination': number_destination,
             'Date': date_trip,
             'Time': time_trip,
-            'Source': city_source,
-            'Destination': city_destination,
             'Max': num_of_plc,
             'Price': price,
+            'Comment': comment,
             'Driver': driver_name,
             'Driver_email': driver_email,
             'User_email': User_email,

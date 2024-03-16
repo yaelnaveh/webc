@@ -22,7 +22,7 @@ def index(id_ride):
     pprint(details)
     # id = details['id']
     # print(id)
-    return render_template('showTravel.html', details=details)  ############levade!!!
+    return render_template('showTravel.html', details=details)
 
 
 def get_travel_details(id_ride):
@@ -32,9 +32,14 @@ def get_travel_details(id_ride):
         'Date': selected_ride['Date'],
         'Time': selected_ride['Time'],
         'Source': selected_ride['Source'],
+        'Street_Source': selected_ride['Street_Source'] if selected_ride.get('Street_Source') is not None else '',
+        'Number_Source': selected_ride['Number_Source'] if selected_ride.get('Number_Source') is not None else '',
         'Destination': selected_ride['Destination'],
+        'Street_Destination': selected_ride['Street_Destination'] if selected_ride.get('Street_Destination') is not None else '',
+        'Number_Destination': selected_ride['Number_Destination'] if selected_ride.get('Number_Destination') is not None else '',
         'Max': selected_ride['Max'],
         'Price': selected_ride['Price'],
+        'Comment': selected_ride['Comment'] if selected_ride.get('Comment') is not None else '',
         'Driver': selected_ride['Driver'],
         'User_name': session.get('username'),
         'User_last_name': session.get('last_name'),
@@ -45,12 +50,3 @@ def get_travel_details(id_ride):
     pprint(ride_data)
     return ride_data
 
-# @showTravel.route('/get_travel_details/<ride_id>', methods=['GET']) ##not sure about it
-# def get_travel_details_route(ride_id):
-#     try:
-#         # Retrieve travel details based on the provided ride ID
-#         ride_data = get_travel_details(ride_id)
-#         # Return the travel details as JSON
-#         return jsonify(ride_data), 200
-#     except Exception as e:
-#         return jsonify({"error": str(e)}), 500

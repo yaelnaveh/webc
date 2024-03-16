@@ -147,7 +147,7 @@ function registerForRide() {
         };
 
         selectedTripData.id = `${selectedTripData.driver}_${selectedTripData.date.toString()}_${selectedTripData.time.toString()}`
-
+        console.log('id of selected ride'+ selectedTripData.id)
         // fetch('/get_ride_session/' + selectedTripData.id)
         //     .then(response => response.json())
         //     .then(data => {
